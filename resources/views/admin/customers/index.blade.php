@@ -9,7 +9,8 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Customers</div>
                     <div class="panel-body">
-                        <a href="{{ url('/admin/customers/create') }}" class="btn btn-success btn-sm" title="Add New Customer">
+                        <a href="{{ url('/admin/customers/create') }}" class="btn btn-success btn-sm"
+                           title="Add New Customer">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
                         </a>
 
@@ -29,29 +30,59 @@
                         <div class="table-responsive">
                             <table class="table table-borderless">
                                 <thead>
-                                    <tr>
-                                        <th>ID</th><th>FirstName</th><th>LastName</th><th>Request Status</th><th>Actions</th>
-                                    </tr>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>FirstName</th>
+                                    <th>LastName</th>
+                                    <th>Request Status</th>
+                                    <th>Actions</th>
+                                </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($customers as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->firstName }}</td><td>{{ $item->lastName }}</td><td>{{ $item->requestStatus }}</td>
+                                        <td>{{ $item->firstName }}</td>
+                                        <td>{{ $item->lastName }}</td>
+                                        <td>{{ $item->requestStatus }}</td>
                                         <td>
-                                            <a href="{{ url('/admin/customers/' . $item->id) }}" title="View Customer"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/customers/' . $item->id . '/edit') }}" title="Edit Customer"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                            <a href="{{ url('/admin/customers/' . $item->id) }}" title="View Customer">
+                                                <button class="btn btn-info btn-xs"><i class="fa fa-eye"
+                                                                                       aria-hidden="true"></i> View
+                                                </button>
+                                            </a>
+                                            <a href="{{ url('/admin/customers/' . $item->id . '/edit') }}"
+                                               title="Edit Customer">
+                                                <button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o"
+                                                                                          aria-hidden="true"></i> Edit
+                                                </button>
+                                            </a>
                                             {!! Form::open([
                                                 'method'=>'DELETE',
                                                 'url' => ['/admin/customers', $item->id],
                                                 'style' => 'display:inline'
                                             ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete Customer',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
+                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
+                                                    'type' => 'submit',
+                                                    'class' => 'btn btn-danger btn-xs',
+                                                    'title' => 'Delete Customer',
+                                                    'onclick'=>'return confirm("Confirm delete?")'
+                                            )) !!}
+                                            {!! Form::close() !!}
+                                            {!! Form::model($item, [
+                                               'method' => 'POST',
+                                               'url' => ['/xyz/update-new'],
+                                               'class' => 'form-horizontal',
+                                               'files' => true
+                                           ]) !!}
+                                            {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
+                                            {!! Form::hidden('requestStatus', 'accepted', ['class' => 'form-control']) !!}
+                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Accept', array(
+                                                    'type' => 'submit',
+                                                    'class' => 'btn btn-success btn-xs',
+                                                    'title' => 'Delete Customer',
+                                                    'onclick'=>'return confirm("Approve registration?")'
+                                            )) !!}
                                             {!! Form::close() !!}
                                         </td>
                                     </tr>

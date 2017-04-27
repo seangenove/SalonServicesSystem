@@ -28,6 +28,13 @@ Route::group(['middleware' => ['auth']], function () {
 //    if (Auth::guest()) {
 //        return redirect()->guest('login');
 //    }
+    Route::post('/xyz/update-new', function(\Illuminate\Http\Request $request){
+        $id = $request->get('id');
+//    dd($ft_id);
+        $requestStatus = $request->get('requestStatus');
+        $customer = \App\Customer::findOrFail($id);
+        $customer->requestStatus = $requestStatus;
+        $customer->save();
+        return redirect()->back();
+    });
 });
-Route::resource('admin/customers', 'Admin\\CustomersController');
-Route::resource('admin/customers', 'Admin\\CustomersController');
