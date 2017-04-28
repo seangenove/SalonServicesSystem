@@ -69,21 +69,23 @@
                                                     'onclick'=>'return confirm("Confirm delete?")'
                                             )) !!}
                                             {!! Form::close() !!}
-                                            {!! Form::model($item, [
-                                               'method' => 'POST',
-                                               'url' => ['/xyz/update-new'],
-                                               'class' => 'form-horizontal',
-                                               'files' => true
-                                           ]) !!}
-                                            {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
-                                            {!! Form::hidden('requestStatus', 'accepted', ['class' => 'form-control']) !!}
-                                            {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Accept', array(
-                                                    'type' => 'submit',
-                                                    'class' => 'btn btn-success btn-xs',
-                                                    'title' => 'Delete Customer',
-                                                    'onclick'=>'return confirm("Approve registration?")'
-                                            )) !!}
-                                            {!! Form::close() !!}
+                                            @if($item->requestStatus !== 'accepted')
+                                                {!! Form::model($item, [
+                                                   'method' => 'POST',
+                                                   'url' => ['/xyz/update-new'],
+                                                   'class' => 'form-horizontal',
+                                                   'files' => true
+                                               ]) !!}
+                                                {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
+                                                {!! Form::hidden('requestStatus', 'accepted', ['class' => 'form-control']) !!}
+                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Accept', array(
+                                                        'type' => 'submit',
+                                                        'class' => 'btn btn-success btn-xs',
+                                                        'title' => 'Delete Customer',
+                                                        'onclick'=>'return confirm("Approve registration?")'
+                                                )) !!}
+                                                {!! Form::close() !!}
+                                            @endif
                                         </td>
                                     </tr>
                                 @endforeach
