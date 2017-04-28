@@ -20,6 +20,12 @@
             'csrfToken' => csrf_token(),
         ]) !!};
     </script>
+    <style>
+        .profileImage{
+            max-width: 80%;
+            max-height: 80%;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
