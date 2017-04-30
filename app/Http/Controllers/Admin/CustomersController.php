@@ -16,6 +16,19 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\View\View
      */
+
+    private function validateForm($request)
+    {
+        $this->validate($request, [
+            'firstName' => 'required|string',
+            'lastName' => 'required|string',
+            'address' => 'required',
+            'email' => 'required|email',
+            'requestStatus' => 'required',
+            'password' => 'required',
+        ]);
+    }
+
     public function index(Request $request)
     {
         $keyword = $request->get('search');
@@ -54,7 +67,7 @@ class CustomersController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         Customer::create($requestData);
@@ -102,7 +115,7 @@ class CustomersController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         $customer = Customer::findOrFail($id);

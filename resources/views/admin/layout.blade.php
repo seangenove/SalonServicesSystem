@@ -30,6 +30,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        .logo-mini i {
+            font-size: 30px;
+        }
+    </style>
 </head>
 <!--
 BODY TAG OPTIONS:
@@ -58,9 +63,10 @@ desired effect
     <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{url('admin')}}" class="logo">
             <!-- mini logo for sidebar mini 50x50 pixels -->
-            <span class="logo-mini"><b>S</b>:)</span>
+            <span class="logo-mini"><i class="fa fa-hand-scissors-o"></i>
+            </span>
             <!-- logo for regular state and mobile devices -->
             <span class="logo-lg"><b>Salon</b>Pas</span>
         </a>
@@ -171,48 +177,27 @@ desired effect
                     </li>
                     <!-- User Account Menu -->
                     <li class="dropdown user user-menu">
-                        <!-- Menu Toggle Button -->
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <!-- The user image in the navbar-->
-                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
-                            <!-- hidden-xs hides the username on small devices so only the image appears. -->
-                            <span class="hidden-xs">Alexander Pierce</span>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                           aria-expanded="false">
+                            {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
-                        <ul class="dropdown-menu">
-                            <!-- The user image in the menu -->
-                            <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
 
-                                <p>
-                                    Alexander Pierce - Web Developer
-                                    <small>Member since Nov. 2012</small>
-                                </p>
-                            </li>
-                            <!-- Menu Body -->
-                            <li class="user-body">
-                                <div class="row">
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Followers</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Sales</a>
-                                    </div>
-                                    <div class="col-xs-4 text-center">
-                                        <a href="#">Friends</a>
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </li>
-                            <!-- Menu Footer-->
-                            <li class="user-footer">
-                                <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                </div>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="{{ url('welcome') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                         </ul>
+                    </li>
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
@@ -229,16 +214,16 @@ desired effect
         <section class="sidebar">
 
             <!-- Sidebar user panel (optional) -->
-            <div class="user-panel">
-                <div class="pull-left image">
-                    <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
-                </div>
-                <div class="pull-left info">
-                    <p>Alexander Pierce</p>
-                    <!-- Status -->
-                    <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
-                </div>
-            </div>
+            {{--<div class="user-panel">--}}
+                {{--<div class="pull-left image">--}}
+                    {{--<img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">--}}
+                {{--</div>--}}
+                {{--<div class="pull-left info">--}}
+                    {{--<p>Alexander Pierce</p>--}}
+                    {{--<!-- Status -->--}}
+                    {{--<a href="#"><i class="fa fa-circle text-success"></i> Online</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
 
             <!-- search form (Optional) -->
             <form action="#" method="get" class="sidebar-form">
@@ -256,9 +241,9 @@ desired effect
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Dashboard</span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span> Customers </span></a></li>
-                <li><a href="#"><i class="fa fa-link"></i> <span> Service Providers </span></a></li>
+                <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customers </span></a></li>
+                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="#"><i class="fa fa-users"></i> <span> Service Providers </span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i> <span>Services</span>
                         <span class="pull-right-container">
@@ -299,26 +284,9 @@ desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        {{--<!-- Content Header (Page header) -->--}}
-        {{--<section class="content-header">--}}
-            {{--<h1>--}}
-                {{--Page Header--}}
-                {{--<small>Optional description</small>--}}
-            {{--</h1>--}}
-            {{--<ol class="breadcrumb">--}}
-                {{--<li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>--}}
-                {{--<li class="active">Here</li>--}}
-            {{--</ol>--}}
-        {{--</section>--}}
 
-        {{--<!-- Main content -->--}}
-        {{--<section class="content">--}}
-
-            {{--<!-- Your Page Content Here -->--}}
-
-        {{--</section>--}}
-        {{--<!-- /.content -->--}}
         @yield('content')
+
     </div>
     <!-- /.content-wrapper -->
 
@@ -329,7 +297,7 @@ desired effect
             Anything you want
         </div>
         <!-- Default to the left -->
-        <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+        <strong>Copyright &copy; 2017 <a href="#">SalonPas</a>.</strong> All rights reserved.
     </footer>
 
     <!-- Control Sidebar -->
