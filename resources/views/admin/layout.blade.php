@@ -32,7 +32,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
     <style>
         .logo-mini i {
+            /*margin-right: 0;*/
             font-size: 30px;
+        }
+        .sidebar-menu .fa{
+            /*margin-right: 7px;*/
+            font-size: 20px;
         }
     </style>
 </head>
@@ -241,11 +246,13 @@ desired effect
             <ul class="sidebar-menu">
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
-                <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
+                <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> &nbsp;<span>Dashboard</span></a></li>
+                <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Categories </span></a></li>
+                <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Services</span></a></li>
                 <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customers </span></a></li>
-                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="#"><i class="fa fa-users"></i> <span> Service Providers </span></a></li>
+                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="#"><i class="fa fa-users"></i>&nbsp;<span> Service Providers </span></a></li>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i> <span>Services</span>
+                    <a href="#"><i class="fa fa-link"></i>&nbsp; <span>Services</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>

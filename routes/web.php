@@ -38,3 +38,7 @@ Route::group(['middleware' => ['auth']], function () {
         return redirect()->back();
     });
 });
+
+Route::resource('admin/categories', 'Admin\\CategoriesController');
+Route::resource('admin/services', 'Admin\\ServicesController');
+Route::resource('admin/services', 'Admin\\ServicesController');
