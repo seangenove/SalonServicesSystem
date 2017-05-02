@@ -21,8 +21,7 @@ class CategoriesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string',
-            'price' => 'required|double',
-            'category_id' => 'required'
+//            'category_id' => 'required'
         ]);
     }
 

@@ -17,6 +17,16 @@ class ServicesController extends Controller
      * @return \Illuminate\View\View
      */
 
+    private function getCategoryNames()
+    {
+        $category_names = [];
+        $allCategories = \App\Category::all();
+        foreach ($allCategories as $categories) {
+            $category_names[$categories->id] = $categories->name;
+        }
+        return $category_names;
+    }
+
     private function validateForm($request)
     {
         $this->validate($request, [
@@ -51,7 +61,7 @@ class ServicesController extends Controller
      */
     public function create()
     {
-        return view('admin.services.create');
+        return view('admin.services.create')->with(['category_names' => $this->getCategoryNames()]);
     }
 
     /**

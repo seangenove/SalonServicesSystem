@@ -37,7 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         }
         .sidebar-menu .fa{
             /*margin-right: 7px;*/
-            font-size: 20px;
+            font-size: 18px;
         }
     </style>
 </head>
