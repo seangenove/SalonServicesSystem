@@ -11,12 +11,12 @@
     <title>Log in with your account</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/newAuth/resources/vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/newAuth/resources/vends/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/newAuth/resources/css/modern-business.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/newAuth/resources/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/newAuth/resources/vends/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/newAuth/resources/css/form-elements.css">
     <link rel="stylesheet" href="/newAuth/resources/css/style.css">
 
@@ -129,7 +129,7 @@
 {{--include footer--}}
 {{--@include('layouts.homepageFooter')--}}
 
-<script src="/newAuth/resources/vendor/jquery/jquery.min.js"></script>
+<script src="/newAuth/resources/vends/jquery/jquery.min.js"></script>
 <script src="/newAuth/resources/js/bootstrap.min.js"></script>
 </body>
 </html>
