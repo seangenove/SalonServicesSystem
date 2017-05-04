@@ -24,13 +24,11 @@ Route::group(['middleware' => ['auth']], function () {
         return view('admin.dashboard');
     });
     Route::resource('admin/customers', 'Admin\\CustomersController');
-    // redirect to original page after login
-//    if (Auth::guest()) {
-//        return redirect()->guest('login');
-//    }
+    Route::resource('admin/categories', 'Admin\\CategoriesController');
+    Route::resource('admin/services', 'Admin\\ServicesController');
+
     Route::post('/xyz/update-new', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
-//    dd($ft_id);
         $requestStatus = $request->get('requestStatus');
         $customer = \App\Customer::findOrFail($id);
         $customer->requestStatus = $requestStatus;
@@ -39,6 +37,3 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
-Route::resource('admin/categories', 'Admin\\CategoriesController');
-Route::resource('admin/services', 'Admin\\ServicesController');
-Route::resource('admin/services', 'Admin\\ServicesController');
