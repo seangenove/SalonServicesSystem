@@ -14,12 +14,23 @@
 Route::get('/', function () {
     return view('homepage');
 });
+Route::get('/customer', function () {
+//        $this
+//
+//    dd('Customer module not yen integrated.');
+    return view('customer');
+})->middleware('auth:customer');
+//Route::get('/aw', function () {
+//    $userName = Auth::user()->name;
+//    $customers = \App\Customer::all();
+//    dd($customers);
+//});
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-Route::group(['middleware' => ['auth']], function () {
+Route::group(['middleware' => ['auth:web']], function () {
     Route::get('/admin', function () {
         return view('admin.dashboard');
     });
@@ -37,3 +48,4 @@ Route::group(['middleware' => ['auth']], function () {
     });
 });
 
+Route::get('customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');

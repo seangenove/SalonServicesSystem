@@ -11,17 +11,17 @@
     <title>Create an account</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/newAuth/resources/vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/newAuth/resources/vends/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/newAuth/resources/css/modern-business.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/newAuth/resources/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/newAuth/resources/vends/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/newAuth/resources/css/form-elements.css">
     <link rel="stylesheet" href="/newAuth/resources/css/style.css">
 
     <style>
-        body{
+        body {
             background: url("/newAuth/resources/images/background.jpg");
             background-size: cover;
             background-repeat: no-repeat;
@@ -62,7 +62,8 @@
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Username" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
+                                       placeholder="Username" required autofocus>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -75,7 +76,8 @@
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                                <input id="email" type="email" class="form-control" name="email"
+                                       value="{{ old('email') }}" placeholder="Email" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -88,7 +90,8 @@
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password" placeholder="password" required>
+                                <input id="password" type="password" class="form-control" name="password"
+                                       placeholder="password" required>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -101,7 +104,8 @@
                         <div class="form-group">
 
                             <div class="col-md-12">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required>
+                                <input id="password-confirm" type="password" class="form-control"
+                                       name="password_confirmation" placeholder="Confirm Password" required>
                             </div>
                         </div>
 
@@ -124,7 +128,7 @@
 {{--<jsp:include page="/WEB-INF/fragments/footer.jsp"></jsp:include>--}}
 
 <!-- Bootstrap core JavaScript -->
-<script src="/newAuth/resources/vendor/jquery/jquery.min.js"></script>
+<script src="/newAuth/resources/vends/jquery/jquery.min.js"></script>
 <script src="/newAuth/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

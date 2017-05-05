@@ -14,7 +14,8 @@
     <link href="/homepage/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
 
     <!-- Custom styles for this template -->
     <link href="/homepage/css/modern-business.css" rel="stylesheet">
@@ -30,6 +31,7 @@
                 width: 100%;
             }
         }
+
         /* Temporary fix for img-fluid sizing within the carousel */
 
         .carousel-item.active,
@@ -45,30 +47,32 @@
 
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-toggleable-md navbar-inverse bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="container">
         <a class="navbar-brand" href="index.html">SALONPAS</a>
         <div class="collapse navbar-collapse" id="navbarExample">
             {{--<ul class="navbar-nav ml-auto">--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="about.html">About</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="services.html">Services</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="contact.html">Contact</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item dropdown">--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="employee.html">Employee</a>--}}
-                {{--</li>--}}
-                {{--<li class="nav-item dropdown">--}}
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link" href="employee.html">Appointments</a>--}}
-                {{--</li>--}}
+            {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="about.html">About</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="services.html">Services</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="contact.html">Contact</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item dropdown">--}}
+            {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="employee.html">Employee</a>--}}
+            {{--</li>--}}
+            {{--<li class="nav-item dropdown">--}}
+            {{--<li class="nav-item">--}}
+            {{--<a class="nav-link" href="employee.html">Appointments</a>--}}
+            {{--</li>--}}
             {{--</ul>--}}
             <ul class="nav navbar-nav navbar-right">
                 <!-- Authentication Links -->
@@ -89,7 +93,8 @@
                                     Logout
                                 </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
                                     {{ csrf_field() }}
                                 </form>
                             </li>
@@ -153,7 +158,8 @@
             <div class="card h-100">
                 <h4 class="card-header">Haircut and Hair Styling</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">View Appointments</a>
@@ -164,7 +170,9 @@
             <div class="card h-100">
                 <h4 class="card-header">Manicure and Pedicure</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos, nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos,
+                        nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque
+                        exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">View Appointments</a>
@@ -175,7 +183,8 @@
             <div class="card h-100">
                 <h4 class="card-header">Facial and Massage</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
+                        necessitatibus neque.</p>
                 </div>
                 <div class="card-footer">
                     <a href="#" class="btn btn-primary">View Appointments</a>
@@ -192,7 +201,9 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/ombre.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Hair Coloring</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt, dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
+                        aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
+                        dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
                 </div>
             </div>
         </div>
@@ -201,7 +212,8 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/undercut.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Undercut Hairstyle</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
                 </div>
             </div>
         </div>
@@ -210,7 +222,9 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/rebond.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Rebond and Relax</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure perspiciatis mollitia recusandae vero vel quam!</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error
+                        quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure
+                        perspiciatis mollitia recusandae vero vel quam!</p>
                 </div>
             </div>
         </div>
@@ -219,7 +233,8 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/matte.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Matte Nail Polish</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
                 </div>
             </div>
         </div>
@@ -228,7 +243,8 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/footspa.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Foot Spa</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
+                        odio, gravida pellentesque urna varius vitae.</p>
                 </div>
             </div>
         </div>
@@ -237,12 +253,13 @@
                 <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/massage.jpg" alt=""></a>
                 <div class="card-block">
                     <h4 class="card-title"><a href="#">Hot Stone Massage</a></h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates, nemo repellat fugiat excepturi! Nemo, esse.</p>
+                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum
+                        suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates,
+                        nemo repellat fugiat excepturi! Nemo, esse.</p>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 </div>

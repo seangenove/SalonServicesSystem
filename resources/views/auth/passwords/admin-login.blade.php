@@ -55,7 +55,7 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form class="form-horizontal form-signin" role="form" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal form-signin" role="form" method="POST" action="{{ route('customer.login.submit') }}">
                         {{ csrf_field() }}
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
