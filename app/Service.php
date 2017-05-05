@@ -26,6 +26,6 @@ class Service extends Model
      * @var array
      */
     protected $fillable = ['name', 'price', 'category_id'];
-
+    public $timestamps = false;
     
 }

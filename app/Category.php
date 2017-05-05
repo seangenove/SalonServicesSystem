@@ -26,6 +26,6 @@ class Category extends Model
      * @var array
      */
     protected $fillable = ['name', 'description'];
-
+    public $timestamps = false;
     
 }

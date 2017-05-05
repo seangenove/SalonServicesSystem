@@ -42,9 +42,9 @@
                                 @foreach($customers as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->firstName }}</td>
-                                        <td>{{ $item->lastName }}</td>
-                                        <td>{{ $item->requestStatus }}</td>
+                                        <td>{{ $item->last_name }}</td>
+                                        <td>{{ $item->first_name }}</td>
+                                        <td>{{ $item->request_status }}</td>
                                         <td>
                                             <a href="{{ url('/admin/customers/' . $item->id) }}" title="View Customer">
                                                 <button class="btn btn-info btn-xs"><i class="fa fa-eye"
@@ -69,7 +69,7 @@
                                                     'onclick'=>'return confirm("Confirm delete?")'
                                             )) !!}
                                             {!! Form::close() !!}
-                                            @if($item->requestStatus !== 'accepted')
+                                            @if($item->request_status !== 'accepted')
                                                 {!! Form::model($item, [
                                                    'method' => 'POST',
                                                    'url' => ['/xyz/update-new'],
@@ -77,7 +77,7 @@
                                                    'files' => true
                                                ]) !!}
                                                 {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
-                                                {!! Form::hidden('requestStatus', 'accepted', ['class' => 'form-control']) !!}
+                                                {!! Form::hidden('request_status', 'accepted', ['class' => 'form-control']) !!}
                                                 {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Accept', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-success btn-xs',

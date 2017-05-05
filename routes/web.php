@@ -40,12 +40,19 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     Route::post('/xyz/update-new', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
-        $requestStatus = $request->get('requestStatus');
+        $requestStatus = $request->get('request_status');
         $customer = \App\Customer::findOrFail($id);
-        $customer->requestStatus = $requestStatus;
+        $customer->request_status = $requestStatus;
         $customer->save();
         return redirect()->back();
     });
 });
 
-Route::get('customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
+//Route::get('customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
+Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
+Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
+Route::resource('admin/service-providers', 'Admin\\ServiceProvidersController');
+Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
+Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
+Route::resource('admin/transactions', 'Admin\\TransactionsController');
+Route::resource('admin/payments', 'Admin\\PaymentsController');

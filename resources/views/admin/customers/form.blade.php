@@ -1,14 +1,14 @@
 <div class="form-group {{ $errors->has('firstName') ? 'has-error' : ''}}">
-    {!! Form::label('firstName', 'First Name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('last_name', 'Last Name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('firstName', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('firstName', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('lastName') ? 'has-error' : ''}}">
-    {!! Form::label('lastName', 'Last Name', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('first_name', 'First Name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::text('lastName', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('lastName', '<p class="help-block">:message</p>') !!}
+        {!! Form::text('first_name', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('first_name', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('address') ? 'has-error' : ''}}">
     {!! Form::label('address', 'Address', ['class' => 'col-md-4 control-label']) !!}

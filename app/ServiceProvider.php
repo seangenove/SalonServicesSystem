@@ -25,7 +25,7 @@ class ServiceProvider extends Model
      *
      * @var array
      */
-    protected $fillable = ['lastName', 'firstName', 'category_id', 'contact_number', 'email', 'status'];
-
+    protected $fillable = ['lastName', 'firstName', 'category_id', 'contact_number', 'email', 'password', 'status', 'description', 'request_status'];
+    public $timestamps = false;
     
 }

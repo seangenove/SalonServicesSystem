@@ -16,11 +16,11 @@ class CustomersTableSeeder extends Seeder
         $limit = 5;
         for ($i = 0; $i < $limit; $i++) {
             DB::table('customers')->insert([ //,
-                'firstName' => $faker->firstName,
-                'lastName' => $faker->lastName,
+                'last_name' => $faker->lastName,
+                'first_name' => $faker->firstName,
                 'address' => $faker->address,
                 'email' => $faker->email,
-                'requestStatus' => 'pending',
+                'request_status' => 'pending',
                 'password' => bcrypt('customer')
             ]);
         }

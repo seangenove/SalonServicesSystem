@@ -13,15 +13,18 @@ class CreateServiceProvidersTable extends Migration
     public function up()
     {
         Schema::create('service_providers', function(Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->string('lastName');
-            $table->string('firstName');
+            $table->string('last_name');
+            $table->string('first_name');
             $table->integer('category_id')->unsigned();
-            $table->integer('contact_number');
+            $table->integer('contact_numer');
             $table->string('email');
-            $table->string('status');
+            $table->enum('status', ['active','inactive']);
+            $table->string('description');
+            $table->string('password');
+            $table->enum('request_status', ['accepted','pending', 'rejected']);
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-            $table->timestamps();
         });
     }
 

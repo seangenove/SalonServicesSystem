@@ -3,17 +3,15 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-class Customer extends Authenticatable
+
+class Transaction extends Model
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
-    protected $guard = 'customers';
-
-    protected $table = 'customers';
+    protected $table = 'transactions';
 
     /**
     * The database primary key value.
@@ -27,7 +25,7 @@ class Customer extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = ['last_name', 'first_name', 'email', 'requestStatus', 'password'];
+    protected $fillable = ['status', 'visits', 'date_started', 'date_finished', 'amount', 'request_id'];
     public $timestamps = false;
     
 }
