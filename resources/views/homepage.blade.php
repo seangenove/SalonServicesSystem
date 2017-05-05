@@ -53,7 +53,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="container">
-        <a class="navbar-brand" href="index.html">SALONPAS</a>
+        <a class="navbar-brand" href="{{url('/')}}">SALONPAS</a>
         <div class="collapse navbar-collapse" id="navbarExample">
             {{--<ul class="navbar-nav ml-auto">--}}
             {{--<li class="nav-item">--}}
@@ -74,11 +74,11 @@
             {{--<a class="nav-link" href="employee.html">Appointments</a>--}}
             {{--</li>--}}
             {{--</ul>--}}
-            <ul class="nav navbar-nav navbar-right">
+            <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->
                 @if (Auth::guest())
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Register</a></li>
                 @else
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -115,23 +115,23 @@
         </ol>
         <div class="carousel-inner" role="listbox">
             <!-- Slide One - Set the background image for this slide in the line below -->
-            <div class="carousel-item active" style="background-image: url('/homepage/img/hair.jpg')">
+            <div class="carousel-item active" style="background-image: url('/homepage/img/slide3.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Haircut</h3>
                     <p>CUT CUT CUT</p>
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('/homepage/img/slide2.jpg')">
+            <div class="carousel-item" style="background-image: url('/homepage/img/slidetwo.jpg')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Second Slide</h3>
+                    <h3> Manicure and Pedicure </h3>
                     <p>This is a description for the second slide.</p>
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
-            <div class="carousel-item" style="background-image: url('/homepage/img/slide3.jpg')">
+            <div class="carousel-item" style="background-image: url('/homepage/img/slidethree.jpg')">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Third Slide</h3>
+                    <h3>Facial and Massage</h3>
                     <p>This is a description for the third slide.</p>
                 </div>
             </div>
@@ -161,9 +161,6 @@
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
                         necessitatibus neque.</p>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">View Appointments</a>
-                </div>
             </div>
         </div>
         <div class="col-lg-4 mb-4">
@@ -174,9 +171,6 @@
                         nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque
                         exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
                 </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">View Appointments</a>
-                </div>
             </div>
         </div>
         <div class="col-lg-4 mb-4">
@@ -185,9 +179,6 @@
                 <div class="card-block">
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
                         necessitatibus neque.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="btn btn-primary">View Appointments</a>
                 </div>
             </div>
         </div>
@@ -198,9 +189,9 @@
     <div class="row">
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/ombre.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/ombre.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Hair Coloring</a></h4>
+                    <h4 class="card-title">Hair Coloring</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
                         aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
                         dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
@@ -209,9 +200,9 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/undercut.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/undercut.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Undercut Hairstyle</a></h4>
+                    <h4 class="card-title">Undercut Hairstyle</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
                         odio, gravida pellentesque urna varius vitae.</p>
                 </div>
@@ -219,9 +210,9 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/rebond.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/rebond.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Rebond and Relax</a></h4>
+                    <h4 class="card-title">Rebond and Relax</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error
                         quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure
                         perspiciatis mollitia recusandae vero vel quam!</p>
@@ -230,9 +221,9 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/matte.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/matte.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Matte Nail Polish</a></h4>
+                    <h4 class="card-title">Matte Nail Polish</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
                         odio, gravida pellentesque urna varius vitae.</p>
                 </div>
@@ -240,9 +231,9 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/footspa.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/footspa.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Foot Spa</a></h4>
+                    <h4 class="card-title">Foot Spa</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
                         odio, gravida pellentesque urna varius vitae.</p>
                 </div>
@@ -250,9 +241,9 @@
         </div>
         <div class="col-lg-4 col-sm-6 portfolio-item">
             <div class="card h-100">
-                <a href="#"><img class="card-img-top img-fluid" src="/homepage/img/massage.jpg" alt=""></a>
+                <img class="card-img-top img-fluid" src="/homepage/img/massage.jpg" alt="">
                 <div class="card-block">
-                    <h4 class="card-title"><a href="#">Hot Stone Massage</a></h4>
+                    <h4 class="card-title">Hot Stone Massage</h4>
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum
                         suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates,
                         nemo repellat fugiat excepturi! Nemo, esse.</p>
