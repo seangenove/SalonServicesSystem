@@ -16,7 +16,6 @@ class CustomersController extends Controller
      *
      * @return \Illuminate\View\View
      */
-
     private function validateForm($request)
     {
         $this->validate($request, [

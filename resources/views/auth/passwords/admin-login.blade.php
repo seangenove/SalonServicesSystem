@@ -11,12 +11,12 @@
     <title>Log in with your account</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="/newAuth/resources/vendor/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/newAuth/resources/vends/bootstrap4/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="/newAuth/resources/css/modern-business.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="/newAuth/resources/vendor/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/newAuth/resources/vends/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/newAuth/resources/css/form-elements.css">
     <link rel="stylesheet" href="/newAuth/resources/css/style.css">
 
@@ -55,18 +55,18 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form class="form-horizontal form-signin" role="form" method="POST" action="{{ route('login') }}">
+                    <form class="form-horizontal form-signin" role="form" method="POST" action="{{ route('customer.login.submit') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             {{--<label for="email" class="col-md-2 control-label">E-Mail Address</label>--}}
 
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" placeholder="Username" required autofocus>
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" placeholder="Email" required autofocus>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('email'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
+                                        <strong>{{ $errors->first('email') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -129,7 +129,7 @@
 {{--include footer--}}
 {{--@include('layouts.homepageFooter')--}}
 
-<script src="/newAuth/resources/vendor/jquery/jquery.min.js"></script>
+<script src="/newAuth/resources/vends/jquery/jquery.min.js"></script>
 <script src="/newAuth/resources/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -3,14 +3,16 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Customer extends Model
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class Customer extends Authenticatable
 {
     /**
      * The database table used by the model.
      *
      * @var string
      */
+    protected $guard = 'customers';
+
     protected $table = 'customers';
 
     /**
