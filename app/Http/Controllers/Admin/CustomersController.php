@@ -19,11 +19,11 @@ class CustomersController extends Controller
     private function validateForm($request)
     {
         $this->validate($request, [
-            'firstName' => 'required|string',
-            'lastName' => 'required|string',
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
             'address' => 'required',
             'email' => 'required|email',
-            'requestStatus' => 'required',
+            'request_status' => 'required',
             'password' => 'required',
         ]);
     }
@@ -34,8 +34,8 @@ class CustomersController extends Controller
         $perPage = 25;
 
         if (!empty($keyword)) {
-            $customers = Customer::where('firstName', 'LIKE', "%$keyword%")
-				->orWhere('lastName', 'LIKE', "%$keyword%")
+            $customers = Customer::where('first_name', 'LIKE', "%$keyword%")
+				->orWhere('last_name', 'LIKE', "%$keyword%")
 				->orWhere('email', 'LIKE', "%$keyword%")
 				->orWhere('password', 'LIKE', "%$keyword%")
 				

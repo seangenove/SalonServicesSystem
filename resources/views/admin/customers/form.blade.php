@@ -23,10 +23,10 @@
         {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('requestStatus') ? 'has-error' : ''}}">
-    {!! Form::label('requestStatus', 'Request Status', ['class' => 'col-md-4 control-label']) !!}
+    {!! Form::label('request_status', 'Request Status', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::select('requestStatus', ['accepted' => 'accepted', 'pending' => 'pending', 'declined' => 'declined'], null, ['class' => 'form-control']) !!}
-        {!! $errors->first('requestStatus', '<p class="help-block">:message</p>') !!}
+        {!! Form::select('request_status', ['accepted' => 'accepted', 'pending' => 'pending', 'rejected' => 'rejected'], null, ['class' => 'form-control']) !!}
+        {!! $errors->first('request_status', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
     {!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}

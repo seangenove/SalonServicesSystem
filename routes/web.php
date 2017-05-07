@@ -37,8 +37,12 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::resource('admin/customers', 'Admin\\CustomersController');
     Route::resource('admin/categories', 'Admin\\CategoriesController');
     Route::resource('admin/services', 'Admin\\ServicesController');
+    Route::resource('admin/service-providers', 'Admin\\ServiceProvidersController');
+    Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
+    Route::resource('admin/transactions', 'Admin\\TransactionsController');
+    Route::resource('admin/payments', 'Admin\\PaymentsController');
 
-    Route::post('/xyz/update-new', function(\Illuminate\Http\Request $request){
+    Route::post('/xyz/update-request-status', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
         $requestStatus = $request->get('request_status');
         $customer = \App\Customer::findOrFail($id);
@@ -47,12 +51,3 @@ Route::group(['middleware' => ['auth:web']], function () {
         return redirect()->back();
     });
 });
-
-//Route::get('customer/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
-Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
-Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
-Route::resource('admin/service-providers', 'Admin\\ServiceProvidersController');
-Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
-Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
-Route::resource('admin/transactions', 'Admin\\TransactionsController');
-Route::resource('admin/payments', 'Admin\\PaymentsController');

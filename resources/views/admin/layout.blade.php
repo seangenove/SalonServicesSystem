@@ -39,6 +39,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             /*margin-right: 7px;*/
             font-size: 18px;
         }
+        .container > .row{
+            margin-top: 20px;
+        }
     </style>
 </head>
 <!--
@@ -250,7 +253,7 @@ desired effect
                 <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Categories </span></a></li>
                 <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Services</span></a></li>
                 <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customers </span></a></li>
-                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="#"><i class="fa fa-users"></i>&nbsp;<span> Service Providers </span></a></li>
+                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Providers </span></a></li>
                 <li class="treeview">
                     <a href="#"><i class="fa fa-link"></i>&nbsp; <span>Services</span>
                         <span class="pull-right-container">

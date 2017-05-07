@@ -1,13 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Serviceproviders</div>
+                    <div class="panel-heading">Service Providers</div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/service-providers/create') }}" class="btn btn-success btn-sm" title="Add New ServiceProvider">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
