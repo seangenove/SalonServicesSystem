@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: salon
+-- Host: localhost    Database: webtek
 -- ------------------------------------------------------
--- Server version	5.7.9
+-- Server version	5.7.14
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -27,7 +27,7 @@ CREATE TABLE `categories` (
   `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Hair','Hair Services');
+INSERT INTO `categories` VALUES (1,'Haircut and Hair Styling','services regarding hair care'),(2,'Manicure and Pedicure','services regarding nail care'),(3,'Facial and Massage','services regarding face and body care');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -66,57 +66,8 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Heller','Samanta','9856 Mohr Causeway Suite 632\nWest Kittyland, PA 96400-0357','heath27@boyer.com','pending','$2y$10$IHKwOtd2lpq7I/30EJc./OC581eHwDNcoj3WOzSVM9/KL9axJfGLO'),(2,'O\'Hara','Susan','2115 Carter Port Suite 397\nMitchelmouth, OH 21255-2950','jfritsch@goyette.org','pending','$2y$10$lxfGUfuX7cS0lWaQGCeeKec6FJiY15RIgMjssuE25iKxuae5WMTgu'),(3,'Klein','Brittany','381 Considine Lakes\nWest Maude, ME 98235-2065','clint43@gmail.com','pending','$2y$10$Biikn59ZV2VdSTCiv.qvDu0LLvj6USxsBUUhxNEJclY3qnM8nvEXe'),(4,'Breitenberg','Marley','86046 Larissa Centers\nHowellland, MO 92063-1448','hagenes.minerva@sauer.com','pending','$2y$10$2.vdmrfV2mFE1lI/FOGAFuTlnRe5Y6nfswt1h9jOL4vRW/AW/jDyq'),(5,'Casper','Guiseppe','16353 Adolfo Drive Apt. 330\nBradyhaven, IL 40767','kristopher34@gmail.com','pending','$2y$10$ti8L6ZarB6vRU.4FC3KFxueWMrg/bEWm.YGZejsxdNMUKAYC9Eyb6');
+INSERT INTO `customers` VALUES (1,'Wayne','Bruce','Gotham City','batman@gmail.com','pending','batman'),(2,'Kent','Clark','Metropolis City','superman@gmail.com','pending','superman'),(3,'Parker','Peter','New York','spiderman@gmail.com','pending','spiderman'),(4,'Allen','Barry','Central City','flash@gmail.com','pending','fastestmanalive'),(5,'Stark','Tony','New York','ironman@gmail.com','pending','ironman');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `migrations`
---
-
-DROP TABLE IF EXISTS `migrations`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `migrations` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `migration` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `migrations`
---
-
-LOCK TABLES `migrations` WRITE;
-/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
-INSERT INTO `migrations` VALUES (1,'2014_10_12_000000_create_users_table',1),(2,'2014_10_12_100000_create_password_resets_table',1),(3,'2017_04_26_145714_create_customers_table',1),(4,'2017_04_30_070439_create_categories_table',1),(5,'2017_04_30_081536_create_services_table',1),(6,'2017_05_05_143643_create_service_providers_table',1),(7,'2017_05_05_143957_create_service_requests_table',1),(8,'2017_05_05_150953_create_transactions_table',1),(9,'2017_05_05_154313_create_payments_table',1);
-/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `password_resets`
---
-
-DROP TABLE IF EXISTS `password_resets`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `password_resets` (
-  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `token` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  KEY `password_resets_email_index` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `password_resets`
---
-
-LOCK TABLES `password_resets` WRITE;
-/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
-/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -158,12 +109,11 @@ CREATE TABLE `service_providers` (
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `category_id` int(10) unsigned NOT NULL,
-  `contact_number` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `contact_number` decimal(11,0) NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `request_status` enum('accepted','pending','rejected') COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `service_providers_category_id_foreign` (`category_id`),
   CONSTRAINT `service_providers_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -176,7 +126,7 @@ CREATE TABLE `service_providers` (
 
 LOCK TABLES `service_providers` WRITE;
 /*!40000 ALTER TABLE `service_providers` DISABLE KEYS */;
-INSERT INTO `service_providers` VALUES (1,'Kovacek','Kobe',1,'09353785487','harley.wolf@gmail.com','inactive','N/A','$2y$10$BZeE6ZdAJYsf5kE8XKoBZuHkuQhb.hSIp1/.2i8ncSKh0d.pTEL3W','pending'),(2,'Torphy','Leonardo',1,'09353785487','dovie.bergstrom@hotmail.com','inactive','N/A','$2y$10$j2oZKDI5BEx5dAn2TymZLOUFC6wHnSiemx0PEdPrtHlwiUdL5jY4m','pending'),(3,'Walker','Jadyn',1,'09353785487','tianna61@rogahn.com','inactive','N/A','$2y$10$V49c1QL.Dxd6SQjDZULnk.5wSOdfKzuFMFyaFPF5NrtD73HWPnQFy','pending'),(4,'Lemke','Ethel',1,'09353785487','utrantow@hotmail.com','inactive','N/A','$2y$10$qyR9IRobz5aVOWnC52OMwu6AEaOiHt10JLPfOiwrouPTkTz1RPg.i','pending'),(5,'Mayert','Harvey',1,'09353785487','arden07@conroy.biz','inactive','N/A','$2y$10$Et/0HD7Ml558X/e/1DGDROvCq0Wms3RTKICJ8ruzggZljUQVOXHNG','pending');
+INSERT INTO `service_providers` VALUES (1,'Laban','Joshua',3,9083425167,'joshie_josh@gmail.com','active','head makeup artist','josh'),(2,'Gagelonia','Jenmar',1,9183423111,'jennie_jen@gmail.com','active','head stylist','jenpogi'),(3,'Zheng','Anne',1,9956723123,'mary.anne@gmail.com','active','manager','$^anne'),(4,'Sanchez','Daiben',2,9185432890,'daiben_daiben@gmail.com','inactive','manicurist','pogiako'),(5,'Bobadilla','Karl',3,9155678912,'genesis.karl@gmail.com','active','masseuse','kaaaaarl');
 /*!40000 ALTER TABLE `service_providers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -189,17 +139,19 @@ DROP TABLE IF EXISTS `service_requests`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `service_requests` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `status` enum('accepted','pending') COLLATE utf8mb4_unicode_ci NOT NULL,
+  `status` enum('accepted','pending','denied') COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'pending',
   `date_requested` date NOT NULL,
-  `date_accepted` date NOT NULL,
+  `date_accepted` date DEFAULT NULL,
   `service_id` int(10) unsigned NOT NULL,
   `customer_id` int(10) unsigned NOT NULL,
+  `service_providers` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `service_requests_service_id_foreign` (`service_id`),
   KEY `service_requests_customer_id_foreign` (`customer_id`),
   CONSTRAINT `service_requests_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `service_requests_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+  CONSTRAINT `service_requests_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `service_requests_service_providers` FOREIGN KEY (`id`) REFERENCES `service_providers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -208,6 +160,7 @@ CREATE TABLE `service_requests` (
 
 LOCK TABLES `service_requests` WRITE;
 /*!40000 ALTER TABLE `service_requests` DISABLE KEYS */;
+INSERT INTO `service_requests` VALUES (1,'pending','2017-07-20',NULL,5,4,2),(2,'pending','2017-07-29',NULL,4,3,5),(3,'pending','2017-08-12',NULL,1,5,2),(4,'pending','2017-08-15',NULL,3,1,4),(5,'pending','2017-08-17',NULL,2,2,5);
 /*!40000 ALTER TABLE `service_requests` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -226,7 +179,7 @@ CREATE TABLE `services` (
   PRIMARY KEY (`id`),
   KEY `services_category_id_foreign` (`category_id`),
   CONSTRAINT `services_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -235,6 +188,7 @@ CREATE TABLE `services` (
 
 LOCK TABLES `services` WRITE;
 /*!40000 ALTER TABLE `services` DISABLE KEYS */;
+INSERT INTO `services` VALUES (1,'hair rebond',1500,3),(2,'hot stone massage',850,2),(3,'matte nail polish',420,3),(4,'foot spa',500,1),(5,'hair coloring',950,1);
 /*!40000 ALTER TABLE `services` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -248,15 +202,14 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `status` enum('idle','ongoing','finished','cancelled') COLLATE utf8mb4_unicode_ci NOT NULL,
-  `visits` int(11) NOT NULL,
   `date_started` date NOT NULL,
-  `date_finished` date NOT NULL,
+  `date_finished` date DEFAULT NULL,
   `amount` double NOT NULL,
   `request_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `transactions_request_id_foreign` (`request_id`),
   CONSTRAINT `transactions_request_id_foreign` FOREIGN KEY (`request_id`) REFERENCES `service_requests` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -265,6 +218,7 @@ CREATE TABLE `transactions` (
 
 LOCK TABLES `transactions` WRITE;
 /*!40000 ALTER TABLE `transactions` DISABLE KEYS */;
+INSERT INTO `transactions` VALUES (1,'ongoing','2017-01-01',NULL,210,1);
 /*!40000 ALTER TABLE `transactions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -285,7 +239,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -294,8 +248,35 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'admin','admin@salonpas.com','$2y$10$SFFLN9yDu0q.IhwT0prGheP69Dt8stNLe0CaIPw8Ho5lCnQw/oRPa',NULL,NULL,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `visits`
+--
+
+DROP TABLE IF EXISTS `visits`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `visits` (
+  `visitId` int(11) NOT NULL AUTO_INCREMENT,
+  `description` varchar(45) NOT NULL,
+  `scheduled_date` date NOT NULL,
+  `transactionId` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`visitId`),
+  KEY `transactionId_idx` (`transactionId`),
+  CONSTRAINT `transaction` FOREIGN KEY (`transactionId`) REFERENCES `transactions` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `visits`
+--
+
+LOCK TABLES `visits` WRITE;
+/*!40000 ALTER TABLE `visits` DISABLE KEYS */;
+INSERT INTO `visits` VALUES (1,'hair coloring and rebond','2017-01-01',1);
+/*!40000 ALTER TABLE `visits` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -307,4 +288,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-09 13:32:40
+-- Dump completed on 2017-05-10  1:16:53
