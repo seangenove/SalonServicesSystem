@@ -131,6 +131,7 @@
                                                ]) !!}
                                                 {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
                                                 {!! Form::hidden('request_status', 'accepted', ['class' => 'form-control']) !!}
+                                                {!! Form::hidden('table', 'customers', ['class' => 'form-control']) !!}
                                                 {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Accept', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-success btn-xs',
@@ -147,6 +148,7 @@
                                                    ]) !!}
                                                 {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
                                                 {!! Form::hidden('request_status', 'rejected', ['class' => 'form-control']) !!}
+                                                {!! Form::hidden('table', 'customers', ['class' => 'form-control']) !!}
                                                 {!! Form::button('<i class="fa fa-times" aria-hidden="true"></i> Decline', array(
                                                         'type' => 'submit',
                                                         'class' => 'btn btn-danger btn-xs',

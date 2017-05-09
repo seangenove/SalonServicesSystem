@@ -18,7 +18,7 @@ class CreateServiceProvidersTable extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->integer('category_id')->unsigned();
-            $table->integer('contact_numer');
+            $table->string('contact_number');
             $table->string('email');
             $table->enum('status', ['active','inactive']);
             $table->string('description');

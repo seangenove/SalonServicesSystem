@@ -44,10 +44,17 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     Route::post('/xyz/update-request-status', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
+        $table= $request->get('table');
         $requestStatus = $request->get('request_status');
-        $customer = \App\Customer::findOrFail($id);
-        $customer->request_status = $requestStatus;
-        $customer->save();
+
+        if($table == "service_providers"){
+            $user = \App\ServiceProvider::findOrFail($id);
+        } else{
+            $user = \App\Customer::findOrFail($id);
+        }
+
+        $user->request_status = $requestStatus;
+        $user->save();
         return redirect()->back();
     });
 });
