@@ -255,34 +255,29 @@ desired effect
                 <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customers </span></a></li>
                 <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Providers </span></a></li>
                 <li class="treeview">
-                    <a href="#"><i class="fa fa-link"></i>&nbsp; <span>Services</span>
+                    <a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>
                         <span class="pull-right-container">
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
                     <ul class="treeview-menu">
+                        @foreach($categories as $category)
                         <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Hair</span>
+                            <a href="#"><i class="fa fa-link"></i> <span>{{$category->name}}</span>
                                 <span class="pull-right-container">
                                   <i class="fa fa-angle-left pull-right"></i>
                                 </span>
                             </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Hair Styling</a></li>
-                                <li><a href="#">Hair cut</a></li>
-                            </ul>
+
+                                <ul class="treeview-menu">
+                                    @foreach($services as $service)
+                                        @if($service->category_id == $category->id)
+                                    <li><a href="#">{{ $service->name }}</a></li>
+                                        @endif
+                                            @endforeach
+                                </ul>
                         </li>
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>Nails</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
-                            <ul class="treeview-menu">
-                                <li><a href="#">Nail Polish</a></li>
-                                <li><a href="#">Nail Cleaning</a></li>
-                            </ul>
-                        </li>
+                        @endforeach
                         {{--<li><a href="#">Link in level 2</a></li>--}}
                     </ul>
                 </li>

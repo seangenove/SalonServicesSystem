@@ -20,11 +20,6 @@ Route::get('/customer', function () {
 //    dd('Customer module not yen integrated.');
     return view('customer');
 })->middleware('auth:customer');
-//Route::get('/aw', function () {
-//    $userName = Auth::user()->name;
-//    $customers = \App\Customer::all();
-//    dd($customers);
-//});
 
 Auth::routes();
 
@@ -32,7 +27,12 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth:web']], function () {
     Route::get('/admin', function () {
-        return view('admin.dashboard');
+        $categories = \App\Category::all();
+        $services = \App\Service::all();
+
+        return view('admin.dashboard')
+            ->with('categories', $categories)
+            ->with('services', $services);
     });
     Route::resource('admin/customers', 'Admin\\CustomersController');
     Route::resource('admin/categories', 'Admin\\CategoriesController');
