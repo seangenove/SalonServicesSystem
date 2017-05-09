@@ -86,10 +86,13 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Customers for Approval</div>
                     <div class="panel-body">
-                        <a href="{{ url('/xyz/update-all') }}" class="btn btn-success btn-sm"
-                           title="Add New Customer">
-                            <i class="fa fa-check" aria-hidden="true"></i> Accept All
-                        </a>
+                        <form action="/xyz/update-all" method="POST">
+                            {{ csrf_field()}}
+                            <input type="hidden" name="table" value="customers">
+                            <button class="btn btn-success btn-sm" type="submit">
+                                <i class="fa fa-check" aria-hidden="true"></i> Accept All
+                            </button>
+                        </form>
 
                         {!! Form::open(['method' => 'GET', 'url' => '/admin/customers', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
                         <div class="input-group">

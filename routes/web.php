@@ -57,4 +57,21 @@ Route::group(['middleware' => ['auth:web']], function () {
         $user->save();
         return redirect()->back();
     });
+
+    Route::post('/xyz/update-all', function(\Illuminate\Http\Request $request){
+        $table = $request->get('table');
+
+        if($table == "service_providers"){
+            $users = \App\ServiceProvider::all()->where('request_status', 'pending');
+        } else{
+            $users = \App\Customer::all()->where('request_status', 'pending');
+        }
+
+        foreach ($users as $user){
+            $user->request_status = 'accepted';
+            $user->save();
+        }
+
+        return redirect()->back();
+    });
 });
