@@ -193,6 +193,7 @@ desired effect
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+
                                 <a href="{{ url('welcome') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -260,26 +261,26 @@ desired effect
                             <i class="fa fa-angle-left pull-right"></i>
                         </span>
                     </a>
-                    <ul class="treeview-menu">
-                        @foreach($categories as $category)
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>{{$category->name}}</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
+                    {{--<ul class="treeview-menu">--}}
+                        {{--@foreach($categories as $category)--}}
+                        {{--<li class="treeview">--}}
+                            {{--<a href="#"><i class="fa fa-link"></i> <span>{{$category->name}}</span>--}}
+                                {{--<span class="pull-right-container">--}}
+                                  {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                                {{--</span>--}}
+                            {{--</a>--}}
 
-                                <ul class="treeview-menu">
-                                    @foreach($services as $service)
-                                        @if($service->category_id == $category->id)
-                                    <li><a href="#">{{ $service->name }}</a></li>
-                                        @endif
-                                            @endforeach
-                                </ul>
-                        </li>
-                        @endforeach
+                                {{--<ul class="treeview-menu">--}}
+                                    {{--@foreach($services as $service)--}}
+                                        {{--@if($service->category_id == $category->id)--}}
+                                    {{--<li><a href="#">{{ $service->name }}</a></li>--}}
+                                        {{--@endif--}}
+                                            {{--@endforeach--}}
+                                {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
                         {{--<li><a href="#">Link in level 2</a></li>--}}
-                    </ul>
+                    {{--</ul>--}}
                 </li>
             </ul>
             <!-- /.sidebar-menu -->
