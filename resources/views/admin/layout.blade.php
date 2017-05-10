@@ -193,6 +193,7 @@ desired effect
 
                         <ul class="dropdown-menu" role="menu">
                             <li>
+
                                 <a href="{{ url('welcome') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -260,6 +261,7 @@ desired effect
                             {{--<i class="fa fa-angle-left pull-right"></i>--}}
                         {{--</span>--}}
                     {{--</a>--}}
+
                     {{--<ul class="treeview-menu">--}}
                         {{--@foreach($categories as $category)--}}
                         {{--<li class="treeview">--}}
@@ -281,6 +283,7 @@ desired effect
                         {{--<li><a href="#">Link in level 2</a></li>--}}
                     {{--</ul>--}}
                 {{--</li>--}}
+
             </ul>
             <!-- /.sidebar-menu -->
         </section>

@@ -86,24 +86,33 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Customers for Approval</div>
                     <div class="panel-body">
-                        <form action="/xyz/update-all" method="POST">
-                            {{ csrf_field()}}
-                            <input type="hidden" name="table" value="customers">
-                            <button class="btn btn-success btn-sm" type="submit">
-                                <i class="fa fa-check" aria-hidden="true"></i> Accept All
-                            </button>
-                        </form>
-
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/customers', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <form action="/xyz/update-all" method="POST">
+                                    {{ csrf_field()}}
+                                    <input type="hidden" name="table" value="customers">
+                                    <button class="btn btn-success btn-sm" type="submit">
+                                        <i class="fa fa-check" aria-hidden="true"></i> Accept All
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-10">
+                                {!! Form::open(['method' => 'GET', 'url' => '/admin/customers', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="search" placeholder="Search...">
+                                    <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </span>
+                                </div>
+                                {!! Form::close() !!}
+                            </div>
                         </div>
-                        {!! Form::close() !!}
+
+
 
                         <br/>
                         <br/>
