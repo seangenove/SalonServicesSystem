@@ -250,37 +250,37 @@ desired effect
                 <li class="header">HEADER</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> &nbsp;<span>Dashboard</span></a></li>
-                <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Categories </span></a></li>
-                <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Services</span></a></li>
-                <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customers </span></a></li>
-                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Providers </span></a></li>
-                <li class="treeview">
-                    <a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>
-                        <span class="pull-right-container">
-                            <i class="fa fa-angle-left pull-right"></i>
-                        </span>
-                    </a>
-                    <ul class="treeview-menu">
-                        @foreach($categories as $category)
-                        <li class="treeview">
-                            <a href="#"><i class="fa fa-link"></i> <span>{{$category->name}}</span>
-                                <span class="pull-right-container">
-                                  <i class="fa fa-angle-left pull-right"></i>
-                                </span>
-                            </a>
+                <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Category </span></a></li>
+                <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Service</span></a></li>
+                <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customer </span></a></li>
+                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Provider </span></a></li>
+                {{--<li class="treeview">--}}
+                    {{--<a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>--}}
+                        {{--<span class="pull-right-container">--}}
+                            {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                        {{--</span>--}}
+                    {{--</a>--}}
+                    {{--<ul class="treeview-menu">--}}
+                        {{--@foreach($categories as $category)--}}
+                        {{--<li class="treeview">--}}
+                            {{--<a href="#"><i class="fa fa-link"></i> <span>{{$category->name}}</span>--}}
+                                {{--<span class="pull-right-container">--}}
+                                  {{--<i class="fa fa-angle-left pull-right"></i>--}}
+                                {{--</span>--}}
+                            {{--</a>--}}
 
-                                <ul class="treeview-menu">
-                                    @foreach($services as $service)
-                                        @if($service->category_id == $category->id)
-                                    <li><a href="#">{{ $service->name }}</a></li>
-                                        @endif
-                                            @endforeach
-                                </ul>
-                        </li>
-                        @endforeach
+                                {{--<ul class="treeview-menu">--}}
+                                    {{--@foreach($services as $service)--}}
+                                        {{--@if($service->category_id == $category->id)--}}
+                                    {{--<li><a href="#">{{ $service->name }}</a></li>--}}
+                                        {{--@endif--}}
+                                            {{--@endforeach--}}
+                                {{--</ul>--}}
+                        {{--</li>--}}
+                        {{--@endforeach--}}
                         {{--<li><a href="#">Link in level 2</a></li>--}}
-                    </ul>
-                </li>
+                    {{--</ul>--}}
+                {{--</li>--}}
             </ul>
             <!-- /.sidebar-menu -->
         </section>

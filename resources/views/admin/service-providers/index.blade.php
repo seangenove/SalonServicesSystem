@@ -77,6 +77,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{--{{dd($serviceproviders)}}--}}
                             <div class="pagination-wrapper"> {!! $serviceproviders->appends(['search' => Request::get('search')])->render() !!} </div>
                         </div>
 
@@ -120,6 +121,7 @@
                                 </thead>
                                 <tbody>
                                 @foreach($serviceproviders as $item)
+                                    {{--{{dd($item)}}--}}
                                     @if($item->request_status == 'pending' || $item->request_status == 'rejected')
                                         <tr>
                                             <td>{{ $item->last_name }}</td>
