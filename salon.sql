@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
 --
--- Host: localhost    Database: webtek
+-- Host: localhost    Database: salon
 -- ------------------------------------------------------
 -- Server version	5.7.14
 
@@ -66,7 +66,7 @@ CREATE TABLE `customers` (
 
 LOCK TABLES `customers` WRITE;
 /*!40000 ALTER TABLE `customers` DISABLE KEYS */;
-INSERT INTO `customers` VALUES (1,'Wayne','Bruce','Gotham City','batman@gmail.com','pending','batman'),(2,'Kent','Clark','Metropolis City','superman@gmail.com','pending','superman'),(3,'Parker','Peter','New York','spiderman@gmail.com','pending','spiderman'),(4,'Allen','Barry','Central City','flash@gmail.com','pending','fastestmanalive'),(5,'Stark','Tony','New York','ironman@gmail.com','pending','ironman');
+INSERT INTO `customers` VALUES (1,'Wayne','Bruce','Gotham City','batman@gmail.com','accepted','password'),(2,'Kent','Clark','Metropolis City','superman@gmail.com','accepted','superman'),(3,'Parker','Peter','New York','spiderman@gmail.com','accepted','spiderman'),(4,'Allen','Barry','Central City','flash@gmail.com','accepted','fastestmanalive'),(5,'Stark','Tony','New York','ironman@gmail.com','accepted','ironman');
 /*!40000 ALTER TABLE `customers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `service_providers` (
   `status` enum('active','inactive') COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `request_status` enum('accepted','pending','rejected') COLLATE utf8mb4_unicode_ci NOT NULL, 
+  `request_status` enum('accepted','pending','rejected') COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `service_providers_category_id_foreign` (`category_id`),
   CONSTRAINT `service_providers_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
@@ -127,7 +127,7 @@ CREATE TABLE `service_providers` (
 
 LOCK TABLES `service_providers` WRITE;
 /*!40000 ALTER TABLE `service_providers` DISABLE KEYS */;
-INSERT INTO `service_providers` VALUES (1,'Laban','Joshua',3,9083425167,'joshie_josh@gmail.com','inactive','head makeup artist','josh', 'pending'),(2,'Gagelonia','Jenmar',1,9183423111,'jennie_jen@gmail.com','inactive','head stylist','jenpogi', 'pending'),(3,'Zheng','Anne',1,9956723123,'mary.anne@gmail.com','inactive','manager','$^anne', 'pending'),(4,'Sanchez','Daiben',2,9185432890,'daiben_daiben@gmail.com','inactive','manicurist','pogiako', 'pending'),(5,'Bobadilla','Karl',3,9155678912,'genesis.karl@gmail.com','active','masseuse','kaaaaarl', 'pending');
+INSERT INTO `service_providers` VALUES (1,'Laban','Joshua',3,9083425167,'joshie_josh@gmail.com','inactive','head makeup artist','josh','pending'),(2,'Gagelonia','Jenmar',1,9183423111,'jennie_jen@gmail.com','inactive','head stylist','jenpogi','pending'),(3,'Zheng','Anne',1,9956723123,'mary.anne@gmail.com','inactive','manager','$^anne','pending'),(4,'Sanchez','Daiben',2,9185432890,'daiben_daiben@gmail.com','inactive','manicurist','pogiako','pending'),(5,'Bobadilla','Karl',3,9155678912,'genesis.karl@gmail.com','active','masseuse','kaaaaarl','pending');
 /*!40000 ALTER TABLE `service_providers` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,9 +238,11 @@ CREATE TABLE `users` (
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
+  `user_id` int(10) DEFAULT NULL,
+  `role` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -249,6 +251,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'admin','admin@salon.com','$2y$10$ukyMBkVxayYYkt8CqsQK7eUtvlYF6jzaO/cEW4SkJO8M77B66C0Ji','izNA1iudnSAeQhFgaEW0MlSXBQy6N9yyE3uL5GYSqWSPExRTXjlnkj5bo9Fn',NULL,NULL,NULL,'admin'),(6,'Wayne, Bruce','batman@gmail.com','$2y$10$12sgKoto7lN9OEuyUnBB6OnLzDS9qpaYB5KiXhtR5m/5BvlURdog.',NULL,'2017-05-10 01:58:31','2017-05-10 01:58:31',1,'customer');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -289,4 +292,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-10  1:16:53
+-- Dump completed on 2017-05-10 18:00:20

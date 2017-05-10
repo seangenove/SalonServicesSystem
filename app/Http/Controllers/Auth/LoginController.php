@@ -29,31 +29,21 @@ class LoginController extends Controller
      *
      * @var string
      */
-    
-    protected $redirectTo = '/admin';
-//    protected function redirectTo(){
-//        $userName = Auth::attempt()->name;
-//        dd($userName);
-////        $serviceProvider = ServiceProvider::all();
-//        $customers = Customer::all();
-//        if($userName == 'admin'){
-//            return '/admin';
-//        } else{
-//            foreach ($customers as $customer){
-//                if($userName == $customer->name && $customer->requestStatus == 'accepted'){
-//                    return '/customer';
-//                }
-//            }
-//
-////            foreach ($serviceProviders as $serviceProvider){
-////                if($userName == $serviceProvider->name  && $serviceProvider->requestStatus == 'accepted'){
-////                    return '/service-provider';
-////                }
-////            }
-//        }
-//
-//        return '/path';
-//    }
+
+//    $user = $reques
+//    protected $redirectTo = '/admin';
+    protected function redirectTo(){
+        $role = Auth::user()->role;
+
+        if($role == 'customer'){
+            return '/customer';
+        }elseif($role == 'service provider'){
+            return '/service-provider';
+        }else{
+//            dd($role);
+            return '/admin';
+        }
+    }
 
     /**
      * Create a new controller instance.

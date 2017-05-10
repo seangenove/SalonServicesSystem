@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/aw', function(){
+Route::get('/customer', function(){
     return view('customer');
 });
 
@@ -53,12 +53,33 @@ Route::group(['middleware' => ['auth:web']], function () {
 
         if($table == "service_providers"){
             $user = \App\ServiceProvider::findOrFail($id);
+            $role = 'service provider';
         } else{
             $user = \App\Customer::findOrFail($id);
+            $role = 'customer';
         }
 
         $user->request_status = $requestStatus;
         $user->save();
+
+        // all users in Users Table
+        $auth_users = \App\User::all();
+
+        $new_user = new \App\User();
+
+
+//        dd($user);
+        foreach ($auth_users as $auth_user){
+            if(!($user->email == $auth_user->email)){
+                $new_user->name = $user->last_name.", ".$user->first_name;
+                $new_user->email = $user->email;
+                $new_user->password = bcrypt($user->password);
+                $new_user->role = $role;
+                $new_user->user_id = $user->id;
+                $new_user->save();
+            }
+        }
+
         return redirect()->back();
     });
 
@@ -79,8 +100,8 @@ Route::group(['middleware' => ['auth:web']], function () {
         return redirect()->back();
     });
 });
-Route::prefix('customer')->group(function(){
-    Route::get('/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
-    Route::post('/login', 'Auth\CustomerLoginController@login')->name('customer.login.submit');
-    Route::get('/', 'Auth\CustomersController@index')->name('customer.dashboard')->middleware('auth:customer');
-});
+//Route::prefix('customer')->group(function(){
+//    Route::get('/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
+//    Route::post('/login', 'Auth\CustomerLoginController@login')->name('customer.login.submit');
+//    Route::get('/', 'Auth\CustomersController@index')->name('customer.dashboard')->middleware('auth:customer');
+//});
