@@ -2,15 +2,27 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Customer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Service;
+use App\ServiceProvider;
 use App\ServiceRequest;
 use Illuminate\Http\Request;
 use Session;
 
 class ServiceRequestsController extends Controller
 {
+    private function validateForm($request)
+    {
+        $this->validate($request, [
+            'status' => 'required',
+            'date_requested' => 'required',
+            'service_id' => 'required',
+            'customer_id' => 'required'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -33,7 +45,12 @@ class ServiceRequestsController extends Controller
             $servicerequests = ServiceRequest::paginate($perPage);
         }
 
-        return view('admin.service-requests.index', compact('servicerequests'));
+        $customers = Customer::all();
+        $service_providers = ServiceProvider::all();
+
+        return view('admin.service-requests.index', compact('servicerequests'))
+            ->with('customers', $customers)
+            ->with('service_providers', $service_providers);
     }
 
     /**
@@ -55,7 +72,7 @@ class ServiceRequestsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         ServiceRequest::create($requestData);
@@ -75,8 +92,18 @@ class ServiceRequestsController extends Controller
     public function show($id)
     {
         $servicerequest = ServiceRequest::findOrFail($id);
+        $service = Service::findOrFail($servicerequest->service_id)->name;
 
-        return view('admin.service-requests.show', compact('servicerequest'));
+        $customer_instance = Customer::findOrFail($servicerequest->customer_id);
+        $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
+
+        $service_provider_instance = Customer::findOrFail($servicerequest->service_provider_id);
+        $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
+
+        return view('admin.service-requests.show', compact('servicerequest'))
+            ->with('customer', $customer)
+            ->with('service_provider', $service_provider)
+            ->with('service', $service);
     }
 
     /**
@@ -103,7 +130,7 @@ class ServiceRequestsController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         $servicerequest = ServiceRequest::findOrFail($id);

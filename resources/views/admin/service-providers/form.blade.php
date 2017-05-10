@@ -16,11 +16,11 @@
         {!! Form::number('category_id', null, ['class' => 'form-control']) !!}
         {!! $errors->first('category_id', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('contact_numer') ? 'has-error' : ''}}">
-    {!! Form::label('contact_numer', 'Contact Numer', ['class' => 'col-md-4 control-label']) !!}
+</div><div class="form-group {{ $errors->has('contact_number') ? 'has-error' : ''}}">
+    {!! Form::label('contact_number', 'Contact Number', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
-        {!! Form::number('contact_numer', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('contact_numer', '<p class="help-block">:message</p>') !!}
+        {!! Form::number('contact_number', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('contact_number', '<p class="help-block">:message</p>') !!}
     </div>
 </div><div class="form-group {{ $errors->has('email') ? 'has-error' : ''}}">
     {!! Form::label('email', 'Email', ['class' => 'col-md-4 control-label']) !!}
@@ -33,6 +33,20 @@
     <div class="col-md-6">
         {!! Form::select('status', ['active', 'inactive'], null, ['class' => 'form-control']) !!}
         {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('description') ? 'has-error' : ''}}">
+    {!! Form::label('description', 'Description', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('description', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
+    </div>
+</div>
+<div class="form-group {{ $errors->has('password') ? 'has-error' : ''}}">
+    {!! Form::label('password', 'Password', ['class' => 'col-md-4 control-label']) !!}
+    <div class="col-md-6">
+        {!! Form::text('password', null, ['class' => 'form-control']) !!}
+        {!! $errors->first('password', '<p class="help-block">:message</p>') !!}
     </div>
 </div>
 

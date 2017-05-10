@@ -145,13 +145,13 @@ CREATE TABLE `service_requests` (
   `date_accepted` date DEFAULT NULL,
   `service_id` int(10) unsigned NOT NULL,
   `customer_id` int(10) unsigned NOT NULL,
-  `service_providers` int(10) NOT NULL,
+  `service_provider_id` int(10) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `service_requests_service_id_foreign` (`service_id`),
   KEY `service_requests_customer_id_foreign` (`customer_id`),
   CONSTRAINT `service_requests_customer_id_foreign` FOREIGN KEY (`customer_id`) REFERENCES `customers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `service_requests_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `service_requests_service_providers` FOREIGN KEY (`id`) REFERENCES `service_providers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `service_requests_service_provider_id` FOREIGN KEY (`id`) REFERENCES `service_providers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

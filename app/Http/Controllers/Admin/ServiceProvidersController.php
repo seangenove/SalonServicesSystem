@@ -11,6 +11,20 @@ use Session;
 
 class ServiceProvidersController extends Controller
 {
+    private function validateForm($request)
+    {
+        $this->validate($request, [
+            'last_name' => 'required|string',
+            'first_name' => 'required|string',
+            'category_id' => 'required',
+            'contact_number' => 'required',
+            'email' => 'required|email',
+            'status' => 'required',
+            'description' => 'required',
+            'password' => 'required',
+        ]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +70,7 @@ class ServiceProvidersController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         ServiceProvider::create($requestData);
@@ -104,7 +118,7 @@ class ServiceProvidersController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         $serviceprovider = ServiceProvider::findOrFail($id);

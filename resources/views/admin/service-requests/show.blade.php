@@ -1,10 +1,8 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
-
             <div class="col-md-9">
                 <div class="panel panel-default">
                     <div class="panel-heading">ServiceRequest {{ $servicerequest->id }}</div>
@@ -31,9 +29,15 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $servicerequest->id }}</td>
+                                        <th>ID</th>
+                                        <td>{{ $servicerequest->id }}</td>
                                     </tr>
-                                    <tr><th> Status </th><td> {{ $servicerequest->status }} </td></tr><tr><th> Date Requested </th><td> {{ $servicerequest->date_requested }} </td></tr><tr><th> Date Accepted </th><td> {{ $servicerequest->date_accepted }} </td></tr>
+                                    <tr><th> Status </th><td> {{ $servicerequest->status }} </td></tr>
+                                    <tr><th> Date Requested </th><td> {{ $servicerequest->date_requested }} </td></tr>
+                                    <tr><th> Date Accepted </th><td> {{ $servicerequest->date_accepted }} </td></tr>
+                                    <tr><th> Service </th><td> {{ $service }} </td></tr>
+                                    <tr><th> Customer </th><td> {{ $customer }} </td></tr>
+                                    <tr><th> Service Provider </th><td> {{ $service_provider }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

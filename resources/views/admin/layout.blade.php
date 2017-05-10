@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Bootstrap 3.3.6 -->
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
@@ -248,13 +248,16 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">HEADER</li>
+                <li class="header">NAVIGATION</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> &nbsp;<span>Dashboard</span></a></li>
                 <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Category </span></a></li>
                 <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Service</span></a></li>
                 <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customer </span></a></li>
-                <li class="{{ Request::is('admin/serviceproviders*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Provider </span></a></li>
+                <li class="{{ Request::is('admin/service-providers*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Provider </span></a></li>
+                <li class="{{ Request::is('admin/service-requests*') ? 'active' : '' }}"><a href="{{ url('/admin/service-requests')  }}"><i class="fa fa-podcast"></i>&nbsp;<span> Service Request </span></a></li>
+                <li class="{{ Request::is('admin/transactions*') ? 'active' : '' }}"><a href="{{ url('/admin/transactions')  }}"><i class="fa fa-handshake-o"></i>&nbsp;<span> Transaction </span></a></li>
+                <li class="{{ Request::is('/admin/payments*') ? 'active' : '' }}"><a href="{{ url('/admin/payments')  }}"><i class="fa fa-money"></i>&nbsp;<span> Payment </span></a></li>
                 {{--<li class="treeview">--}}
                     {{--<a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>--}}
                         {{--<span class="pull-right-container">--}}

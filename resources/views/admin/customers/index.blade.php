@@ -30,8 +30,8 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
-                                    <th>FirstName</th>
-                                    <th>LastName</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
                                     <th>Email</th>
                                     <th>Actions</th>
                                 </tr>

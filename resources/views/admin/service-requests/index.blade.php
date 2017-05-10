@@ -1,13 +1,12 @@
-@extends('layouts.app')
+@extends('admin.layout')
 
 @section('content')
     <div class="container">
         <div class="row">
-            @include('admin.sidebar')
 
             <div class="col-md-9">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Servicerequests</div>
+                    <div class="panel-heading">Service Requests</div>
                     <div class="panel-body">
                         <a href="{{ url('/admin/service-requests/create') }}" class="btn btn-success btn-sm" title="Add New ServiceRequest">
                             <i class="fa fa-plus" aria-hidden="true"></i> Add New
@@ -30,14 +29,28 @@
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>Status</th><th>Date Requested</th><th>Date Accepted</th><th>Actions</th>
+                                        <th>ID</th><th>Status</th><th>Customer</th><th>Service Provider</th><th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 @foreach($servicerequests as $item)
                                     <tr>
                                         <td>{{ $item->id }}</td>
-                                        <td>{{ $item->status }}</td><td>{{ $item->date_requested }}</td><td>{{ $item->date_accepted }}</td>
+                                        <td>{{ $item->status }}</td>
+                                        <td>
+                                            @foreach($customers as $customer)
+                                                @if($customer->id == $item->customer_id)
+                                                    {{ $customer->last_name.", ".$customer->first_name }}
+                                                @endif
+                                            @endforeach
+                                        </td>
+                                        <td>
+                                            @foreach($service_providers as $service_provider)
+                                                @if($service_provider->id == $item->service_provider_id)
+                                                    {{ $service_provider->last_name.", ".$service_provider->first_name }}
+                                                @endif
+                                            @endforeach
+                                        </td>
                                         <td>
                                             <a href="{{ url('/admin/service-requests/' . $item->id) }}" title="View ServiceRequest"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
                                             <a href="{{ url('/admin/service-requests/' . $item->id . '/edit') }}" title="Edit ServiceRequest"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>

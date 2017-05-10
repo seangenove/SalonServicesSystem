@@ -1,10 +1,10 @@
-<div class="form-group {{ $errors->has('firstName') ? 'has-error' : ''}}">
+<div class="form-group {{ $errors->has('last_name') ? 'has-error' : ''}}">
     {!! Form::label('last_name', 'Last Name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('last_name', null, ['class' => 'form-control']) !!}
         {!! $errors->first('last_name', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('lastName') ? 'has-error' : ''}}">
+</div><div class="form-group {{ $errors->has('first_name') ? 'has-error' : ''}}">
     {!! Form::label('first_name', 'First Name', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::text('first_name', null, ['class' => 'form-control']) !!}

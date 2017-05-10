@@ -4,13 +4,15 @@
         {!! Form::select('status', ['idle', 'ongoing', 'finished'], null, ['class' => 'form-control']) !!}
         {!! $errors->first('status', '<p class="help-block">:message</p>') !!}
     </div>
-</div><div class="form-group {{ $errors->has('visits') ? 'has-error' : ''}}">
-    {!! Form::label('visits', 'Visits', ['class' => 'col-md-4 control-label']) !!}
-    <div class="col-md-6">
-        {!! Form::number('visits', null, ['class' => 'form-control']) !!}
-        {!! $errors->first('visits', '<p class="help-block">:message</p>') !!}
-    </div>
-</div><div class="form-group {{ $errors->has('date_started') ? 'has-error' : ''}}">
+</div>
+{{--<div class="form-group {{ $errors->has('visits') ? 'has-error' : ''}}">--}}
+    {{--{!! Form::label('visits', 'Visits', ['class' => 'col-md-4 control-label']) !!}--}}
+    {{--<div class="col-md-6">--}}
+        {{--{!! Form::number('visits', null, ['class' => 'form-control']) !!}--}}
+        {{--{!! $errors->first('visits', '<p class="help-block">:message</p>') !!}--}}
+    {{--</div>--}}
+{{--</div>--}}
+<div class="form-group {{ $errors->has('date_started') ? 'has-error' : ''}}">
     {!! Form::label('date_started', 'Date Started', ['class' => 'col-md-4 control-label']) !!}
     <div class="col-md-6">
         {!! Form::date('date_started', null, ['class' => 'form-control']) !!}

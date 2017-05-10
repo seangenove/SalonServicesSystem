@@ -11,6 +11,14 @@ use Session;
 
 class TransactionsController extends Controller
 {
+    private function validateForm($request)
+    {
+        $this->validate($request, [
+            'status' => 'required',
+            'date_started' => 'required',
+            'request_id' => 'required'
+        ]);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +64,7 @@ class TransactionsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         Transaction::create($requestData);
@@ -104,7 +112,7 @@ class TransactionsController extends Controller
      */
     public function update($id, Request $request)
     {
-        
+        $this->validateForm($request);
         $requestData = $request->all();
         
         $transaction = Transaction::findOrFail($id);
