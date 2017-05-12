@@ -118,21 +118,18 @@
             <div class="carousel-item active" style="background-image: url('/homepage/img/slide3.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Haircut</h3>
-                    <p>CUT CUT CUT</p>
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('/homepage/img/slidetwo.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3> Manicure and Pedicure </h3>
-                    <p>This is a description for the second slide.</p>
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('/homepage/img/slidethree.jpg')">
                 <div class="carousel-caption d-none d-md-block">
                     <h3>Facial and Massage</h3>
-                    <p>This is a description for the third slide.</p>
                 </div>
             </div>
         </div>
@@ -158,8 +155,8 @@
             <div class="card h-100">
                 <h4 class="card-header">Haircut and Hair Styling</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus neque.</p>
+                    <p class="card-text">From haircuts to hair colors, small changes to reinventions,our hair stylists will work with you to design the perfect, customized
+                        style. Our services include a variety of haircuts, hair styles, and hair treatments for men and women.</p>
                 </div>
             </div>
         </div>
@@ -167,9 +164,8 @@
             <div class="card h-100">
                 <h4 class="card-header">Manicure and Pedicure</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis ipsam eos,
-                        nam perspiciatis natus commodi similique totam consectetur praesentium molestiae atque
-                        exercitationem ut consequuntur, sed eveniet, magni nostrum sint fuga.</p>
+                    <p class="card-text">Using products that are organic and cruelty-free, we clean and shape nails to the ultimate perfection. Enjoy our unforgettable
+                        world class manicure and pedicure services with a soothing warm neck pillow.</p>
                 </div>
             </div>
         </div>
@@ -177,8 +173,8 @@
             <div class="card h-100">
                 <h4 class="card-header">Facial and Massage</h4>
                 <div class="card-block">
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse
-                        necessitatibus neque.</p>
+                    <p class="card-text">With a minimum time of 60 minutes, we can offer an invigorating body massage or full service facial built on fundamentals of good
+                        skin care. Enjoy our services with the scent of aroma and the sound of soothing calm music.</p>
                 </div>
             </div>
         </div>
@@ -192,9 +188,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/ombre.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Hair Coloring</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam
-                        aspernatur eum quasi sapiente nesciunt? Voluptatibus sit, repellat sequi itaque deserunt,
-                        dolores in, nesciunt, illum tempora ex quae? Nihil, dolorem!</p>
+                    <p class="card-text">When it comes to hair color, even the smallest change can make a big impact. Whether you're in the mood for subtle color shift or
+                        a complete transformation, our color artists can create the perfect shade just for you.</p>
                 </div>
             </div>
         </div>
@@ -203,8 +198,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/undercut.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Undercut Hairstyle</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
-                        odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">With an undercut hairstyle, men can slick back their hair, comb it over, hold it with pomade, or just let it all hang loose and
+                        natural. Whether you want it to be at short, medium, or long length, our stylists can take care of it.</p>
                 </div>
             </div>
         </div>
@@ -213,9 +208,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/rebond.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Rebond and Relax</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos quisquam, error
-                        quod sed cumque, odio distinctio velit nostrum temporibus necessitatibus et facere atque iure
-                        perspiciatis mollitia recusandae vero vel quam!</p>
+                    <p class="card-text">Having sleek, straight hair that looks like you were born with it, can be achieved with the help of our stylists. We can offer you
+                        rebonded or relaxed hair that looks effortlessly perfect, together with hair keratin treatment, hair spa, and hair shine.</p>
                 </div>
             </div>
         </div>
@@ -224,8 +218,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/matte.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Matte Nail Polish</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
-                        odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">Improve the condition and appearance of your weakened nails. This treatment includes nail cleaning, application of nail polish and a
+                        choice of Naked Glossy Seal or Naked Satin Seal for a matte finish.</p>
                 </div>
             </div>
         </div>
@@ -234,8 +228,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/footspa.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Foot Spa</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod
-                        odio, gravida pellentesque urna varius vitae.</p>
+                    <p class="card-text">We use equipment sterilized in an autoclave, utilizing the same stringent disinfection and sterilization techniques as our surgical
+                        instruments. Come renew your senses and rejuvenate your feet with our foot spa service.</p>
                 </div>
             </div>
         </div>
@@ -244,9 +238,8 @@
                 <img class="card-img-top img-fluid" src="/homepage/img/massage.jpg" alt="">
                 <div class="card-block">
                     <h4 class="card-title">Hot Stone Massage</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque earum nostrum
-                        suscipit ducimus nihil provident, perferendis rem illo, voluptate atque, sit eius in voluptates,
-                        nemo repellat fugiat excepturi! Nemo, esse.</p>
+                    <p class="card-text">Our Hot Stone Massage service is a natural therapy in which smooth, warmed stones are positioned on the client’s body during the
+                        massage to warm the muscles. Be relaxed as the stones send heat deep into the body and muscles.</p>
                 </div>
             </div>
         </div>
