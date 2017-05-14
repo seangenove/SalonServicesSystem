@@ -11,7 +11,9 @@
 |
 */
 Route::get('/customer', function(){
-    return view('customer');
+    $id = \Illuminate\Support\Facades\Auth::user()->user_id;
+
+    return redirect(url('http://google.com/'.$id));
 });
 Route::get('/service-provider', function(){
     return view('serviceProvider');
