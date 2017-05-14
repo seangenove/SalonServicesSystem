@@ -1,31 +1,36 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="row">
+            <div class="col-md-12">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Service Providers</h3>
+                    </div>
+                    {{--<div class="panel panel-default">--}}
+                    <div class="box-body">
 
-            <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Service Requests</div>
-                    <div class="panel-body">
-                        <a href="{{ url('/admin/service-requests/create') }}" class="btn btn-success btn-sm" title="Add New ServiceRequest">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
-
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/service-requests', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
+                        <div class="col-xs-3">
+                            <a href="{{ url('/admin/service-requests/create') }}" class="btn btn-success btn-sm" title="Add New ServiceRequest">
+                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                            </a>
                         </div>
-                        {!! Form::close() !!}
+                        <div class="col-xs-4"></div>
+                        <div class="col-xs-5">
+                            {!! Form::open(['method' => 'GET', 'url' => '/admin/service-requests', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="search" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default" type="submit">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            {!! Form::close() !!}
+                        </div>
 
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
+                        <div class="table-responsive col-xs-121">
                             <table class="table table-borderless">
                                 <thead>
                                     <tr>
