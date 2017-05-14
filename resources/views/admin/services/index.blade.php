@@ -1,69 +1,96 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="row">
-{{--            @include('admin.sidebar')--}}
-
-            <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Services</div>
-                    <div class="panel-body">
-                        <a href="{{ url('/admin/services/create') }}" class="btn btn-success btn-sm" title="Add New Service">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
-
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/services', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        {!! Form::close() !!}
-
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th><th>Name</th><th>Price</th><th>Category Id</th><th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($services as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->name }}</td><td>{{ $item->price }}</td><td>{{ $item->category_id }}</td>
-                                        <td>
-                                            <a href="{{ url('/admin/services/' . $item->id) }}" title="View Service"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/services/' . $item->id . '/edit') }}" title="Edit Service"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            {!! Form::open([
-                                                'method'=>'DELETE',
-                                                'url' => ['/admin/services', $item->id],
-                                                'style' => 'display:inline'
-                                            ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete Service',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
-                                            {!! Form::close() !!}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div class="pagination-wrapper"> {!! $services->appends(['search' => Request::get('search')])->render() !!} </div>
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title"> Services </h3>
+                    </div>
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-xs-11"></div>
+                            <div class="col-xs-1">
+                                {{--{!! Form::open(['method' => 'GET', 'url' => '/admin/categories', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}--}}
+                                {{--<div class="input-group">--}}
+                                {{--<input type="text" class="form-control" name="search" placeholder="Search...">--}}
+                                {{--<span class="input-group-btn">--}}
+                                {{--<button class="btn btn-default" type="submit">--}}
+                                {{--<i class="fa fa-search"></i>--}}
+                                {{--</button>--}}
+                                {{--</span>--}}
+                                {{--</div>--}}
+                                {{--{!! Form::close() !!}--}}
+                                <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-sm" title="Add New Category">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                </a>
+                            </div>
                         </div>
 
+                        <div class="row">
+                            <div class="table-responsive col-xs-12" style="margin-top: 10px">
+                                <table id="services" class="table table-responsive table-condensed">
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Price</th>
+                                        <th>Category Id</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody>
+                                    @foreach($services as $service)
+                                        <tr class="clickable-row" data-href="categries/{{$service->id}}">
+                                            <td>{{ $service->id }}</td>
+                                            <td>{{ $service->name }}</td>
+                                            <td>{{ $service->price }}</td>
+                                            <td>{{ $service->category_id }}</td>
+                                            <td class="table-commands">
+                                                <div class="row">
+                                                    <a href="{{ url('/admin/categories/' . $service->id) }}"
+                                                       title="View Service Provider">
+                                                        <button class="btn btn-info btn-xs"><i class="fa fa-eye"
+                                                                                               aria-hidden="true"></i> View
+                                                        </button>
+                                                    </a>
+                                                    <a href="{{ url('/admin/categories/' . $service->id . '/edit') }}"
+                                                       title="Edit Service Provider">
+                                                        <button class="btn btn-primary btn-xs"><i
+                                                                    class="fa fa-pencil-square-o"
+                                                                    aria-hidden="true"></i> Edit
+                                                        </button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 @endsection
+
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+@endsection
+
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#services').DataTable({
+                stateSave: true,
+                "lengthMenu": [[5, 10, 15, 25, 50, 100, 500, -1], [5, 10, 15, 25, 50, 100, 500, "All"]]
+            });
+        });
+    </script>
+@endsection
+

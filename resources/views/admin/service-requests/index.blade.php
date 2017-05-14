@@ -6,30 +6,28 @@
             <div class="col-md-12">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Service Providers</h3>
+                        <h3 class="box-title">Service Requests</h3>
                     </div>
                     {{--<div class="panel panel-default">--}}
                     <div class="box-body">
 
-                        <div class="col-xs-3">
-                            <a href="{{ url('/admin/service-requests/create') }}" class="btn btn-success btn-sm" title="Add New ServiceRequest">
-                                <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                            </a>
-                        </div>
-                        <div class="col-xs-4"></div>
-                        <div class="col-xs-5">
-                            {!! Form::open(['method' => 'GET', 'url' => '/admin/service-requests', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                            <div class="input-group">
-                                <input type="text" class="form-control" name="search" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="submit">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            {!! Form::close() !!}
-                        </div>
+                        <a href="{{ url('/admin/service-requests/create') }}" class="btn btn-success btn-sm" title="Add New ServiceRequest">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        </a>
 
+                        {!! Form::open(['method' => 'GET', 'url' => '/admin/service-requests', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
+                        <div class="input-group">
+                            <input type="text" class="form-control" name="search" placeholder="Search...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">
+                                    <i class="fa fa-search"></i>
+                                </button>
+                            </span>
+                        </div>
+                        {!! Form::close() !!}
+
+                        <br/>
+                        <br/>
                         <div class="table-responsive col-xs-121">
                             <table class="table table-borderless">
                                 <thead>

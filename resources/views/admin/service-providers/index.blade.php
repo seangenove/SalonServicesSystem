@@ -55,7 +55,7 @@
                                             <td>{{ $serviceprovider->address }}</td>
                                             <td class="table-commands">
                                                 <div class="row">
-                                                    <a href="{{ url('/admin/service-providers/' . $serviceproviders->id) }}"
+                                                    <a href="{{ url('/admin/service-providers/' . $serviceprovider->id) }}"
                                                        title="View Service Provider">
                                                         <button class="btn btn-info btn-xs"><i class="fa fa-eye"
                                                                                                aria-hidden="true"></i> View
@@ -117,7 +117,6 @@
 
                         <div class="row">
                             <div class="table-responsive col-xs-12" style="margin-top: 10px">
-
                                 <table id="service_providers2" class="table table-responsive table-condensed">
                                     <thead>
                                     <tr>
@@ -130,20 +129,20 @@
 
                                     <tbody>
                                     @foreach($serviceproviders as $serviceprovider)
-                                        <tr class="clickable-row" data-href="service-providers/{{$serviceproviders->id}}">
-                                            <td>{{ $serviceproviders->id }}</td>
-                                            <td>{{ $serviceproviders->last_name }}</td>
-                                            <td>{{ $serviceproviders->first_name }}</td>
-                                            <td>{{ $serviceproviders->request_status }}</td>
+                                        <tr class="clickable-row" data-href="service-providers/{{$serviceprovider->id}}">
+                                            <td>{{ $serviceprovider->id }}</td>
+                                            <td>{{ $serviceprovider->last_name }}</td>
+                                            <td>{{ $serviceprovider->first_name }}</td>
+                                            <td>{{ $serviceprovider->request_status }}</td>
                                             <td class="table-commands">
                                                 <div class="row">
-                                                    <a href="{{ url('/admin/service-providers/' . $serviceproviders->id) }}"
+                                                    <a href="{{ url('/admin/service-providers/' . $serviceprovider->id) }}"
                                                        title="View Service Provider">
                                                         <button class="btn btn-info btn-xs"><i class="fa fa-eye"
                                                                                                aria-hidden="true"></i> View
                                                         </button>
                                                     </a>
-                                                    <a href="{{ url('/admin/service-providers/' . $serviceproviders->id . '/edit') }}"
+                                                    <a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}"
                                                        title="Edit Service Provider">
                                                         <button class="btn btn-primary btn-xs"><i
                                                                     class="fa fa-pencil-square-o"
