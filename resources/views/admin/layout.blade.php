@@ -34,6 +34,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <![endif]-->
+
     <style>
         .logo-mini i {
             /*margin-right: 0;*/

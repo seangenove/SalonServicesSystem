@@ -175,19 +175,19 @@
                         <th>Commands</th>
                     </tr>
                     </thead>
-                    <tfoot>
-                    <tr>
-                        <th>ID</th>
-                        <th>Last Name</th>
-                        <th>First Name</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Commands</th>
-                    </tr>
-                    </tfoot>
+                    {{--<tfoot>--}}
+                    {{--<tr>--}}
+                        {{--<th>ID</th>--}}
+                        {{--<th>Last Name</th>--}}
+                        {{--<th>First Name</th>--}}
+                        {{--<th>Email</th>--}}
+                        {{--<th>Address</th>--}}
+                        {{--<th>Commands</th>--}}
+                    {{--</tr>--}}
+                    {{--</tfoot>--}}
                     <tbody>
                     @foreach($customers as $customer)
-                        <tr class="clickable-row" data-href="firetrucks/{{$customer->id}}">
+                        <tr class="clickable-row" data-href="customers/{{$customer->id}}">
                             <td>{{ $customer->id }}</td>
                             <td>{{ $customer->last_name }}</td>
                             <td>{{ $customer->first_name }}</td>
