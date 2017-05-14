@@ -6,7 +6,9 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\ServiceProvider;
+use App\Transaction;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class ServiceProvidersController extends Controller
@@ -90,8 +92,15 @@ class ServiceProvidersController extends Controller
     public function show($id)
     {
         $serviceprovider = ServiceProvider::findOrFail($id);
+        $detailed_transactions = DB::table('transactions')
+            ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
+            ->select('transactions.*', 'service_requests.*')
+            ->where('service_requests.service_provider_id', $id)
+            ->get();
 
-        return view('admin.service-providers.show', compact('serviceprovider'));
+//        dd($detailed_transactions);
+        return view('admin.service-providers.show', compact('serviceprovider'))
+            ->with('transactions', $detailed_transactions);
     }
 
     /**
