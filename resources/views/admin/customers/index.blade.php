@@ -96,8 +96,8 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-10"></div>
-                            <div class="col-xs-2">
+                            <div class="col-sm-10"></div>
+                            <div class="col-sm-2">
                                 <a href="{{ url('/admin/customers/create') }}" class="btn btn-success btn-sm"
                                    title="Add New Service Provider">
                                     <i class="fa fa-plus" aria-hidden="true"></i> Add New

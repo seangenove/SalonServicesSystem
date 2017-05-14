@@ -253,13 +253,14 @@ desired effect
 
             <!-- Sidebar Menu -->
             <ul class="sidebar-menu">
-                <li class="header">NAVIGATION</li>
+                <li class="header">Navigation</li>
                 <!-- Optionally, you can add icons to the links -->
                 <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="{{ url('/admin') }}"><i class="fa fa-dashboard"></i> &nbsp;<span>Dashboard</span></a></li>
-                <li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Category </span></a></li>
+                {{--<li class="{{ Request::is('admin/categories*') ? 'active' : '' }}"><a href="{{ url('admin/categories') }}"><i class="fa fa-tags"></i>&nbsp; <span> Category </span></a></li>--}}
                 <li class="{{ Request::is('admin/services*') ? 'active' : '' }}"><a href="{{ url('/admin/services') }}"><i class="fa fa-scissors"></i> &nbsp;<span>Service</span></a></li>
                 <li class="{{ Request::is('admin/customers*') ? 'active' : '' }}"><a href="{{ url('/admin/customers') }}"><i class="fa fa-user"></i> <span> Customer </span></a></li>
                 <li class="{{ Request::is('admin/service-providers*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Provider </span></a></li>
+                <li class="header">Monitoring</li>
                 <li class="{{ Request::is('admin/service-requests*') ? 'active' : '' }}"><a href="{{ url('/admin/service-requests')  }}"><i class="fa fa-podcast"></i>&nbsp;<span> Service Request </span></a></li>
                 <li class="{{ Request::is('admin/transactions*') ? 'active' : '' }}"><a href="{{ url('/admin/transactions')  }}"><i class="fa fa-handshake-o"></i>&nbsp;<span> Transaction </span></a></li>
                 <li class="{{ Request::is('admin/payments*') ? 'active' : '' }}"><a href="{{ url('/admin/payments')  }}"><i class="fa fa-money"></i>&nbsp;<span> Payment </span></a></li>

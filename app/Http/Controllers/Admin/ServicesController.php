@@ -6,6 +6,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Service;
+use App\ServiceProvider;
 use Illuminate\Http\Request;
 use Session;
 
@@ -51,7 +52,9 @@ class ServicesController extends Controller
             $services = Service::paginate($perPage);
         }
 
-        return view('admin.services.index', compact('services'));
+        $serviceproviders = ServiceProvider::all();
+        return view('admin.services.index', compact('services'))
+            ->with('serviceproviders', $serviceproviders);
     }
 
     /**

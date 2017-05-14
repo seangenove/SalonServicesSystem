@@ -36,7 +36,9 @@
                                         <th>ID</th>
                                         <th>Name</th>
                                         <th>Price</th>
-                                        <th>Category Id</th>
+                                        <th>Category</th>
+                                        <th>Service Provider</th>
+                                        <th>Description</th>
                                         <th>Actions</th>
                                     </tr>
                                     </thead>
@@ -47,7 +49,13 @@
                                             <td>{{ $service->id }}</td>
                                             <td>{{ $service->name }}</td>
                                             <td>{{ $service->price }}</td>
-                                            <td>{{ $service->category_id }}</td>
+                                            <td>{{ $service->category }}</td>
+                                            @foreach($serviceproviders as $serviceprovider)
+                                                @if($service->spid == $serviceprovider->id)
+                                                    <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>
+                                                @endif
+                                            @endforeach
+                                            <td>{{ $service->category }}</td>
                                             <td class="table-commands">
                                                 <div class="row">
                                                     <a href="{{ url('/admin/categories/' . $service->id) }}"

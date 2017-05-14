@@ -39,13 +39,21 @@ Route::get('/home', 'HomeController@index');
 
 Route::group(['middleware' => ['auth:web']], function () {
     Route::get('/admin', function () {
-        $categories = \App\Category::all();
-        $services = \App\Service::all();
+//        $noOfServices = \App\Service::all()->count();
+        $noOfTransactions = \App\Transaction::all()->count();
+        $noOfServiceRequests = \App\ServiceRequest::all()->count();
+        $noOfSPRequests = \App\ServiceProvider::all()
+            ->where('request_status', 'pending')->count();
+        $noOfCustomerRequests = \App\Customer::all()
+            ->where('request_status', 'pending')->count();
 
         return view('admin.dashboard')
-            ->with('categories', $categories)
-            ->with('services', $services);
+            ->with('noOfTransactions', $noOfTransactions)
+            ->with('noOfServiceRequests', $noOfServiceRequests)
+            ->with('noOfSPRequests', $noOfSPRequests)
+            ->with('noOfCustomerRequests', $noOfCustomerRequests);
     });
+
     Route::resource('admin/customers', 'Admin\\CustomersController');
     Route::resource('admin/categories', 'Admin\\CategoriesController');
     Route::resource('admin/services', 'Admin\\ServicesController');
