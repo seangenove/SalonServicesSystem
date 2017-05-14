@@ -1,14 +1,15 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="row">
-            {{--@include('admin.sidebar')--}}
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Customer: {{ $customer->last_name. ', '. $customer->first_name }}</h3>
+                    </div>
 
-            <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Customer {{ $customer->id }}</div>
-                    <div class="panel-body">
+                    <div class="box-body">
                         <a href="{{ url('/admin/customers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
                         <a href="{{ url('/admin/customers/' . $customer->id . '/edit') }}" title="Edit Customer"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                         {!! Form::open([

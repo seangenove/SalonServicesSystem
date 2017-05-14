@@ -34,6 +34,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" type="text/css"
           href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <![endif]-->
+    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.min.css">
+    <link rel="stylesheet" href="../plugins/fullcalendar/fullcalendar.print.css" media="print">
 
     <style>
         .logo-mini i {

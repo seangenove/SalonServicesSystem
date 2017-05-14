@@ -45,10 +45,9 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    @foreach($servicerequests as $servicerequest)
-                                        @if($servicerequest->request_status == 'pending')
+                                        @foreach($servicerequests as $servicerequest)
                                             <tr class="clickable-row"
-                                                data-href="service-providers/{{$servicerequest->id}}">
+                                                data-href="service-requests/{{$servicerequest->id}}">
                                                 {{--<td>{{ $serviceprovider->id }}</td>--}}
                                                 <td>{{ $servicerequest->id }}</td>
                                                 <td>{{ $servicerequest->status }}</td>
@@ -85,8 +84,7 @@
                                                     </div>
                                                 </td>
                                             </tr>
-                                        @endif
-                                    @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
 

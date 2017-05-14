@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Customer;
+use App\Service;
+use App\ServiceProvider;
 use App\Transaction;
 use Illuminate\Http\Request;
 use Session;
@@ -41,8 +44,12 @@ class TransactionsController extends Controller
         } else {
             $transactions = Transaction::paginate($perPage);
         }
+        $customers = Customer::all();
+        $service_providers = ServiceProvider::all();
 
-        return view('admin.transactions.index', compact('transactions'));
+        return view('admin.transactions.index', compact('transactions'))
+            ->with('customers', $customers)
+            ->with('service_providers', $service_providers);
     }
 
     /**
@@ -84,8 +91,19 @@ class TransactionsController extends Controller
     public function show($id)
     {
         $transaction = Transaction::findOrFail($id);
+        $service = Service::findOrFail($transaction->service_id)->name;
 
-        return view('admin.transactions.show', compact('transaction'));
+        $customer_instance = Customer::findOrFail($transaction->customer_id);
+        $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
+
+        $service_provider_instance = Customer::findOrFail($transaction->service_provider_id);
+        $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
+
+
+        return view('admin.transactions.show', compact('transaction'))
+            ->with('customer', $customer)
+            ->with('service_provider', $service_provider)
+            ->with('service', $service);
     }
 
     /**
