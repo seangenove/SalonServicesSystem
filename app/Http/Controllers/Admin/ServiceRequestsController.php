@@ -47,6 +47,7 @@ class ServiceRequestsController extends Controller
 
         $customers = Customer::all();
         $service_providers = ServiceProvider::all();
+//        dd($service_providers);
 
         return view('admin.service-requests.index', compact('servicerequests'))
             ->with('customers', $customers)
