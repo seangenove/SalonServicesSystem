@@ -4,7 +4,8 @@
 {{--<div class="container">--}}
     {{--<div class="row">--}}
         {{--@include('admin.sidebar')--}}
-
+<div class="content">
+    <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">Dashboard</div>
@@ -151,8 +152,8 @@
                 </div>
             </div>
         </div>
-    {{--</div>--}}
-{{--</div>--}}
+    </div>
+</div>
 @endsection
 
 @section('js')
