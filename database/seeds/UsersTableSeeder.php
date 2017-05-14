@@ -15,6 +15,7 @@ class UsersTableSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@salonpas.com',
             'password' => bcrypt('adminadmin'),
+            'user_id' => 0,
             'role' => 'admin'
         ]);
     }

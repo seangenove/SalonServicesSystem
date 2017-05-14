@@ -13,6 +13,12 @@
 Route::get('/customer', function(){
     return view('customer');
 });
+Route::get('/service-provider', function(){
+    return view('serviceProvider');
+});
+Route::get('/register-sp', function(){
+    return view('auth.spLogin');
+});
 
 
 Route::get('/', function () {
