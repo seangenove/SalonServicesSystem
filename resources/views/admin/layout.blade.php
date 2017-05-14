@@ -29,6 +29,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css"
+          href="https://cdn.datatables.net/1.10.15/css/dataTables.bootstrap.min.css">
     <![endif]-->
     <style>
         .logo-mini i {
@@ -257,7 +261,7 @@ desired effect
                 <li class="{{ Request::is('admin/service-providers*') ? 'active' : '' }}"><a href="{{ url('/admin/service-providers')  }}"><i class="fa fa-users"></i>&nbsp;<span> Service Provider </span></a></li>
                 <li class="{{ Request::is('admin/service-requests*') ? 'active' : '' }}"><a href="{{ url('/admin/service-requests')  }}"><i class="fa fa-podcast"></i>&nbsp;<span> Service Request </span></a></li>
                 <li class="{{ Request::is('admin/transactions*') ? 'active' : '' }}"><a href="{{ url('/admin/transactions')  }}"><i class="fa fa-handshake-o"></i>&nbsp;<span> Transaction </span></a></li>
-                <li class="{{ Request::is('/admin/payments*') ? 'active' : '' }}"><a href="{{ url('/admin/payments')  }}"><i class="fa fa-money"></i>&nbsp;<span> Payment </span></a></li>
+                <li class="{{ Request::is('admin/payments*') ? 'active' : '' }}"><a href="{{ url('/admin/payments')  }}"><i class="fa fa-money"></i>&nbsp;<span> Payment </span></a></li>
                 {{--<li class="treeview">--}}
                     {{--<a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>--}}
                         {{--<span class="pull-right-container">--}}
@@ -404,7 +408,7 @@ desired effect
      user experience. Slimscroll is required when using the
      fixed layout. -->
 
-<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>
+{{--<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>--}}
 <!-- jQuery UI 1.11.4 -->
 <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -412,10 +416,10 @@ desired effect
     $.widget.bridge('uibutton', $.ui.button);
 </script>
 <!-- Bootstrap 3.3.6 -->
-<script src="/bootstrap/js/bootstrap.min.js"></script>
+{{--<script src="/bootstrap/js/bootstrap.min.js"></script>--}}
 <!-- Morris.js charts -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
-<script src="/plugins/morris/morris.min.js"></script>
+{{--<script src="/plugins/morris/morris.min.js"></script>--}}
 <!-- Sparkline -->
 <script src="/plugins/sparkline/jquery.sparkline.min.js"></script>
 <!-- jvectormap -->
@@ -437,8 +441,10 @@ desired effect
 <!-- AdminLTE App -->
 <script src="/dist/js/app.min.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="/dist/js/pages/dashboard.js"></script>
+{{--<script src="/dist/js/pages/dashboard.js"></script>--}}
 <!-- AdminLTE for demo purposes -->
 <script src="/dist/js/demo.js"></script>
+@yield('css')
+@yield('js')
 </body>
 </html>

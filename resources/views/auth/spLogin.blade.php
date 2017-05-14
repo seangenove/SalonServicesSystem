@@ -19,19 +19,13 @@
     <link rel="stylesheet" href="/newAuth/resources/vends/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="/newAuth/resources/css/form-elements.css">
     <link rel="stylesheet" href="/newAuth/resources/css/style.css">
-    <script
-            src="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
+
     <style>
         body {
             background: url("/newAuth/resources/images/background.jpg");
             background-size: cover;
             background-repeat: no-repeat;
             margin-top: 30px;
-        }
-        #sp-register{
-            display: none;
         }
 
     </style>
@@ -51,91 +45,7 @@
 <!-- Page Content -->
 <div class="inner-bg">
     <div class="container">
-        <div id="cus-register" class="col-sm-5">
-            <div class="form-box">
-                <div class="form-top">
-                    <div class="form-top-left">
-                        <h3 style="color: white">Customer Registration</h3>
-                    </div>
-                    <div class="form-top-right">
-                        <i class="fa fa-lock"></i>
-                    </div>
-                </div>
-                <div class="form-bottom">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-
-                            <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
-                                       placeholder="Username" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="form-control" name="email"
-                                       value="{{ old('email') }}" placeholder="Email" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="form-control" name="password"
-                                       placeholder="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-
-                            <div class="col-md-12">
-                                <input id="password-confirm" type="password" class="form-control"
-                                       name="password_confirmation" placeholder="Confirm Password" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-12 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register
-                                </button>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-8">
-                                    <a id="registerAsSPButton" href="#">
-                                        Register as Service Provider
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-        <div id="sp-register" class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
+        <div class="col-lg-5 col-md-7 col-sm-10 col-xs-10">
             <div class="form-box">
                 <div class="form-top">
                     <div class="form-top-left">
@@ -209,7 +119,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-md-8">
-                                    <a  id="registerAsCustomerButton" href="#">
+                                    <a  href="{{ url('register') }}">
                                         Register as Customer
                                     </a>
                                 </div>
@@ -219,7 +129,6 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 <br/>
@@ -230,19 +139,5 @@
 <!-- Bootstrap core JavaScript -->
 <script src="/newAuth/resources/vends/jquery/jquery.min.js"></script>
 <script src="/newAuth/resources/js/bootstrap.min.js"></script>
-
-<script>
-    $("#registerAsCustomerButton").click(function(){
-//        e.preventDefault();
-        $("#sp-register").hide();
-        $("#cus-register").fadeIn();
-    });
-
-    $("#registerAsSPButton").click(function(){
-        $("#cus-register").hide();
-        $("#sp-register").fadeIn();
-    });
-</script>
-
 </body>
 </html>
