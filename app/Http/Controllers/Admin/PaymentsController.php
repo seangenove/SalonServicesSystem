@@ -74,7 +74,16 @@ class PaymentsController extends Controller
     {
         $payment = Payment::findOrFail($id);
 
-        return view('admin.payments.show', compact('payment'));
+        $customer_instance = Customer::findOrFail($transaction->customer_id);
+        $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
+
+        $service_provider_instance = Customer::findOrFail($transaction->service_provider_id);
+        $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
+
+
+        return view('admin.payments.show', compact('payment'))
+            ->with('customer', $customer)
+            ->with('service_provider', $service_provider);
     }
 
     /**

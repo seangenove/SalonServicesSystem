@@ -1,68 +1,73 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="row">
+            <div class="col-md-12">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Payments</h3>
+                    </div>
+                    <div class="box-body">
 
-            <div class="col-md-9">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Payments</div>
-                    <div class="panel-body">
-                        <a href="{{ url('/admin/payments/create') }}" class="btn btn-success btn-sm" title="Add New Payment">
-                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                        </a>
-
-                        {!! Form::open(['method' => 'GET', 'url' => '/admin/payments', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="search" placeholder="Search...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-default" type="submit">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </span>
-                        </div>
-                        {!! Form::close() !!}
-
-                        <br/>
-                        <br/>
-                        <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <thead>
+                        <div class="row">
+                            <div class="table-responsive col-xs-12">
+                                <table id="payments" class="table table-responsive table-condensed">
+                                    <thead>
                                     <tr>
-                                        <th>ID</th><th>Amount</th><th>Date</th><th>Transaction Id</th><th>Actions</th>
+                                        <th>Payment ID</th>
+                                        <th>Transaction ID</th>
+                                        <th>Customer</th>
+                                        <th>Service Provider</th>
+                                        <th>Amount</th>
+                                        <th>Date</th>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                @foreach($payments as $item)
-                                    <tr>
-                                        <td>{{ $item->id }}</td>
-                                        <td>{{ $item->amount }}</td><td>{{ $item->date }}</td><td>{{ $item->transaction_id }}</td>
-                                        <td>
-                                            <a href="{{ url('/admin/payments/' . $item->id) }}" title="View Payment"><button class="btn btn-info btn-xs"><i class="fa fa-eye" aria-hidden="true"></i> View</button></a>
-                                            <a href="{{ url('/admin/payments/' . $item->id . '/edit') }}" title="Edit Payment"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                                            {!! Form::open([
-                                                'method'=>'DELETE',
-                                                'url' => ['/admin/payments', $item->id],
-                                                'style' => 'display:inline'
-                                            ]) !!}
-                                                {!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(
-                                                        'type' => 'submit',
-                                                        'class' => 'btn btn-danger btn-xs',
-                                                        'title' => 'Delete Payment',
-                                                        'onclick'=>'return confirm("Confirm delete?")'
-                                                )) !!}
-                                            {!! Form::close() !!}
-                                        </td>
-                                    </tr>
-                                @endforeach
-                                </tbody>
-                            </table>
-                            <div class="pagination-wrapper"> {!! $payments->appends(['search' => Request::get('search')])->render() !!} </div>
-                        </div>
+                                    </thead>
 
+                                    <tbody>
+                                    @foreach($payments as $payment)
+                                        <tr class="clickable-row" data-href="payments/{{$payment->id}}">
+                                            <td>{{ $payment->id }}</td>
+                                            <td>{{ $payment->transaction_id }}</td>
+                                            <td>{{ $payment->customer }}</td>
+                                                @foreach($customers as $customer)
+                                                    @if($customer->id == $transaction->customer_id)
+                                                        {{ $customer->last_name.", ".$customer->first_name }}
+                                                    @endif
+                                                @endforeach
+                                            <td>{{ $payment->service_provider }}</td>
+                                                @foreach($serviceproviders as $serviceprovider)
+                                                    @if($service->spid == $serviceprovider->id)
+                                                        <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>
+                                                    @endif
+                                                @endforeach
+                                            <td>{{ $payment->amount }}</td>
+                                            <td>{{ $payment->date }}</td>
+                                        </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css" />
+@endsection
+
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#payments').DataTable({
+                stateSave: true,
+                "lengthMenu": [[5, 10, 15, 25, 50, 100, 500, -1], [5, 10, 15, 25, 50, 100, 500, "All"]]
+            });
+        });
+    </script>
 @endsection

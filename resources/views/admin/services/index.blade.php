@@ -49,7 +49,7 @@
                                             <td>{{ $service->id }}</td>
                                             <td>{{ $service->name }}</td>
                                             <td>{{ $service->price }}</td>
-                                            <td>{{ $service->category }}</td>
+                                            <td>{{ $service->service_provider }}</td>
                                             @foreach($serviceproviders as $serviceprovider)
                                                 @if($service->spid == $serviceprovider->id)
                                                     <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>

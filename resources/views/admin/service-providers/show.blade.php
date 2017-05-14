@@ -1,56 +1,44 @@
 @extends('admin.layout')
 
 @section('content')
-    <div class="container">
+    <div class="content">
         <div class="row">
+            <div class="col-md-6">
+                <div class="box box-default">
+                    <div class="box-header with-border">
+                        <h3 class="box-title">Service Provider: {{ $serviceprovider->first_name . " " . $serviceprovider->last_name }}</h3>
+                    </div>
 
+                    <div class="box-body">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <a href="{{ url('/admin/service-providers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                                <a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                            </div>
 
-
-
-            <div class="col-md-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading"><strong>Service Provider: </strong> {{ $serviceprovider->first_name . " " . $serviceprovider->last_name }}</div>
-                    <div class="panel-body">
-
-                        <a href="{{ url('/admin/service-providers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                        <a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
-                        {{--{!! Form::open([--}}
-                            {{--'method'=>'DELETE',--}}
-                            {{--'url' => ['admin/serviceproviders', $serviceprovider->id],--}}
-                            {{--'style' => 'display:inline'--}}
-                        {{--]) !!}--}}
-                            {{--{!! Form::button('<i class="fa fa-trash-o" aria-hidden="true"></i> Delete', array(--}}
-                                    {{--'type' => 'submit',--}}
-                                    {{--'class' => 'btn btn-danger btn-xs',--}}
-                                    {{--'title' => 'Delete ServiceProvider',--}}
-                                    {{--'onclick'=>'return confirm("Confirm delete?")'--}}
-                            {{--))!!}--}}
-                        {{--{!! Form::close() !!}--}}
-                        <br/>
-                        <br/>
-
-                        <div class="table-responsive">
-                            <table class="table table-borderless">
-                                <tbody>
-                                    <tr>
-                                        <th>ID</th><td>{{ $serviceprovider->id }}</td>
-                                    </tr>
-                                    <tr><th> Last Name </th><td> {{ $serviceprovider->last_name }} </td></tr>
-                                    <tr><th> First Name </th><td> {{ $serviceprovider->first_name }} </td></tr>
-                                    <tr><th> Contact Number </th><td> {{ $serviceprovider->contact_number }} </td></tr>
-                                    <tr><th> Email </th><td> {{ $serviceprovider->email }} </td></tr>
-                                    <tr><th> Description </th><td> {{ $serviceprovider->description }} </td></tr>
-                                    <tr><th> Remarks </th><td> {{ $serviceprovider->remarks }} </td></tr>
-                                    <tr><th> Request Status </th><td> {{ $serviceprovider->request_status }} </td></tr>
-                                </tbody>
-                            </table>
+                            <div class="table-responsive col-xs-12" style="margin-top: 10px">
+                                <table class="table table-borderless">
+                                    <tbody>
+                                        <tr>
+                                            <th>ID</th><td>{{ $serviceprovider->id }}</td>
+                                        </tr>
+                                        <tr><th> Last Name </th><td> {{ $serviceprovider->last_name }} </td></tr>
+                                        <tr><th> First Name </th><td> {{ $serviceprovider->first_name }} </td></tr>
+                                        <tr><th> Contact Number </th><td> {{ $serviceprovider->contact_number }} </td></tr>
+                                        <tr><th> Email </th><td> {{ $serviceprovider->email }} </td></tr>
+                                        <tr><th> Description </th><td> {{ $serviceprovider->description }} </td></tr>
+                                        <tr><th> Remarks </th><td> {{ $serviceprovider->remarks }} </td></tr>
+                                        <tr><th> Request Status </th><td> {{ $serviceprovider->request_status }} </td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-8">
+
+            <div class="col-md-6">
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">Transactions (Ongoing Services)</h3>
@@ -105,10 +93,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 @endsection

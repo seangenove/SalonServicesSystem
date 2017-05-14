@@ -89,6 +89,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="col-md-7">
                 <div class="box box-success">
                     <div class="box-header with-border">
