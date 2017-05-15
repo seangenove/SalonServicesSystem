@@ -152,5 +152,11 @@ Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
     $ip_address = 'localhost';
 
-    return redirect(url('http://'.$ip_address.':8080/WebTek/requests.htm?id='.$id));
+    return redirect(url('http://'.$ip_address.':8080/WebTek/request.htm/?id='.$id));
+});
+
+Route::get('/user-logout', function(){
+    \Illuminate\Support\Facades\Auth::logout();
+
+    return view('homepage');
 });

@@ -16,7 +16,7 @@
                                     <thead>
                                     <tr>
                                         <th>Payment ID</th>
-                                        <th>Transaction ID</th>
+                                        {{--<th>Transaction ID</th>--}}
                                         <th>Customer</th>
                                         <th>Service Provider</th>
                                         <th>Amount</th>
@@ -26,18 +26,18 @@
 
                                     <tbody>
                                     @foreach($payments as $payment)
+{{--                                        {{dd($payment)}}--}}
                                         <tr class="clickable-row" data-href="payments/{{$payment->id}}">
                                             <td>{{ $payment->id }}</td>
-                                            <td>{{ $payment->transaction_id }}</td>
-                                            <td>{{ $payment->customer }}</td>
+                                             {{--<td>{{ $payment->customer }}</td>--}}
                                                 @foreach($customers as $customer)
-                                                    @if($customer->id == $transaction->customer_id)
-                                                        {{ $customer->last_name.", ".$customer->first_name }}
+                                                    @if($customer->id == $payment->customer_id)
+                                                        <td>{{ $customer->last_name.", ".$customer->first_name }}</td>
                                                     @endif
                                                 @endforeach
-                                            <td>{{ $payment->service_provider }}</td>
+                                            {{--<td>{{ $payment->service_provider }}</td>--}}
                                                 @foreach($serviceproviders as $serviceprovider)
-                                                    @if($service->spid == $serviceprovider->id)
+                                                    @if($payment->service_providers == $serviceprovider->id)
                                                         <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>
                                                     @endif
                                                 @endforeach

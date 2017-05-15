@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Customer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Payment;
+use App\ServiceProvider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class PaymentsController extends Controller
@@ -25,13 +28,33 @@ class PaymentsController extends Controller
             $payments = Payment::where('amount', 'LIKE', "%$keyword%")
 				->orWhere('date', 'LIKE', "%$keyword%")
 				->orWhere('transaction_id', 'LIKE', "%$keyword%")
-				
+
                 ->paginate($perPage);
         } else {
             $payments = Payment::paginate($perPage);
         }
 
-        return view('admin.payments.index', compact('payments'));
+        $payments = DB::table('payments')
+            ->join('transactions', 'transactions.id', '=', 'payments.transaction_id')
+            ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
+            ->select('transactions.*',
+                'service_requests.date_requested',
+                'service_requests.date_accepted',
+                'service_requests.service_id',
+                'service_requests.customer_id',
+                'service_requests.service_providers',
+                'payments.amount',
+                'payments.transaction_id',
+                'payments.time',
+                'payments.date')
+            ->get();
+
+        $customers = Customer::all();
+        $serviceproviders = ServiceProvider::all();
+
+        return view('admin.payments.index', compact('payments'))
+            ->with('customers', $customers)
+            ->with('serviceproviders', $serviceproviders);
     }
 
     /**
@@ -74,10 +97,10 @@ class PaymentsController extends Controller
     {
         $payment = Payment::findOrFail($id);
 
-        $customer_instance = Customer::findOrFail($transaction->customer_id);
+        $customer_instance = Customer::findOrFail($payment->customer_id);
         $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
 
-        $service_provider_instance = Customer::findOrFail($transaction->service_providers);
+        $service_provider_instance = Customer::findOrFail($payment->service_providers);
         $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
 
 

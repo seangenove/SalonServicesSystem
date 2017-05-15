@@ -98,7 +98,7 @@
         $(document).ready(function () {
             $('#services').DataTable({
                 stateSave: true,
-                "lengthMenu": [[5, 10, 15, 25, 50, 100, 500, -1], [5, 10, 15, 25, 50, 100, 500, "All"]]
+                "lengthMenu": [[10, 15, 25, 50, 100, 500, -1], [10, 15, 25, 50, 100, 500, "All"]]
             });
         });
     </script>
