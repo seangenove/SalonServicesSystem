@@ -35,7 +35,9 @@
                                     </thead>
                                     <tbody>
                                     @foreach($serviceproviders as $serviceprovider)
+{{--                                        {{dd($serviceproviders)}}--}}
                                         @if($serviceprovider->request_status == 'pending')
+
                                             <tr class="clickable-row" data-href="service-providers/{{$serviceprovider->id}}">
                                                 {{--<td>{{ $serviceprovider->id }}</td>--}}
                                                 <td>{{ $serviceprovider->last_name }}</td>

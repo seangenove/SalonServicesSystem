@@ -35,7 +35,7 @@ class ServiceProvidersController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 500;
 
         if (!empty($keyword)) {
             $serviceproviders = ServiceProvider::where('lastName', 'LIKE', "%$keyword%")
@@ -49,7 +49,7 @@ class ServiceProvidersController extends Controller
         } else {
             $serviceproviders = ServiceProvider::paginate($perPage);
         }
-
+//        dd(ServiceProvider::all()->where('request_status', 'pending'));
         return view('admin.service-providers.index', compact('serviceproviders'));
     }
 
