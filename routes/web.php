@@ -128,6 +128,8 @@ Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
 
     return redirect(url('http://slu.salonpas.com/WeBTek/'.$id));
+
+    return redirect(url('http://slu.salonpas.com/WebTek/'.$id."/requests.htm"));
 });
 Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
