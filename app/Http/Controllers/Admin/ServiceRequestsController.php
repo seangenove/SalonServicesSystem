@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\Service;
 use App\ServiceProvider;
 use App\ServiceRequest;
+use App\Transaction;
 use Illuminate\Http\Request;
 use Session;
 
@@ -46,6 +47,7 @@ class ServiceRequestsController extends Controller
         }
 
         $customers = Customer::all();
+        $transactions = Transaction::all();
         $service_providers = ServiceProvider::all();
 
 //        dd($servicerequests);
@@ -55,6 +57,7 @@ class ServiceRequestsController extends Controller
 
         return view('admin.service-requests.index', compact('servicerequests'))
             ->with('customers', $customers)
+            ->with('transactions', $transactions)
             ->with('service_providers', $service_providers);
     }
 

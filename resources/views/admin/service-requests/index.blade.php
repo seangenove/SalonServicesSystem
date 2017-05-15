@@ -39,6 +39,7 @@
                                     <tr>
                                         <th>ID</th>
                                         <th>Status</th>
+                                        {{--<th>Visits</th>--}}
                                         <th>Customer</th>
                                         <th>Service Provider</th>
                                         <th>Actions</th>
@@ -51,6 +52,12 @@
                                                 {{--<td>{{ $serviceprovider->id }}</td>--}}
                                                 <td>{{ $servicerequest->id }}</td>
                                                 <td>{{ $servicerequest->status }}</td>
+                                                {{--<td>--}}
+                                                    {{--@foreach($transactions as $transaction)--}}
+                                                        {{--@if($visits->id == $transaction->visitId)--}}
+                                                            {{--{{ $visits->where('visitId', $transaction->id)->count() }}</td>--}}
+                                                        {{--@endif--}}
+                                                    {{--@endforeach--}}
                                                 <td>
                                                     @foreach($customers as $customer)
                                                         @if($customer->id == $servicerequest->customer_id)
@@ -74,13 +81,13 @@
                                                                 View
                                                             </button>
                                                         </a>
-                                                        <a href="{{ url('/admin/service-requests/' . $servicerequest->id . '/edit') }}"
-                                                           title="Edit ServiceRequest">
-                                                            <button class="btn btn-primary btn-xs"><i
-                                                                        class="fa fa-pencil-square-o"
-                                                                        aria-hidden="true"></i> Edit
-                                                            </button>
-                                                        </a>
+                                                        {{--<a href="{{ url('/admin/service-requests/' . $servicerequest->id . '/edit') }}"--}}
+                                                           {{--title="Edit ServiceRequest">--}}
+                                                            {{--<button class="btn btn-primary btn-xs"><i--}}
+                                                                        {{--class="fa fa-pencil-square-o"--}}
+                                                                        {{--aria-hidden="true"></i> Edit--}}
+                                                            {{--</button>--}}
+                                                        {{--</a>--}}
                                                     </div>
                                                 </td>
                                             </tr>

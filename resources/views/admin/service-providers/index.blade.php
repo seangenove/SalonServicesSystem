@@ -96,17 +96,17 @@
                         <h3 class="box-title">Service Providers</h3>
                     </div>
                     <div class="box-body">
-                        <div class="row">
-                            <div class="col-xs-10">
-                                <a href="{{ url('/admin/service-providers/create') }}" class="btn btn-success btn-sm"
-                                   title="Add New Service Provider">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                                </a>
-                            </div>
+                        {{--<div class="row">--}}
+                            {{--<div class="col-xs-10">--}}
+                                {{--<a href="{{ url('/admin/service-providers/create') }}" class="btn btn-success btn-sm"--}}
+                                   {{--title="Add New Service Provider">--}}
+                                    {{--<i class="fa fa-plus" aria-hidden="true"></i> Add New--}}
+                                {{--</a>--}}
+                            {{--</div>--}}
                             {{--<div class="col-xs-2">--}}
 
                             {{--</div>--}}
-                        </div>
+                        {{--</div>--}}
                         <div class="row">
                             <div class="table-responsive col-xs-12" style="margin-top: 10px">
                                 <table id="service_providers2" class="table table-responsive table-condensed">
@@ -137,13 +137,13 @@
                                                                                                    aria-hidden="true"></i> View
                                                             </button>
                                                         </a>
-                                                        <a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}"
-                                                           title="Edit Customer">
-                                                            <button class="btn btn-primary btn-xs"><i
-                                                                        class="fa fa-pencil-square-o"
-                                                                        aria-hidden="true"></i> Edit
-                                                            </button>
-                                                        </a>
+                                                        {{--<a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}"--}}
+                                                           {{--title="Edit Customer">--}}
+                                                            {{--<button class="btn btn-primary btn-xs"><i--}}
+                                                                        {{--class="fa fa-pencil-square-o"--}}
+                                                                        {{--aria-hidden="true"></i> Edit--}}
+                                                            {{--</button>--}}
+                                                        {{--</a>--}}
                                                     </div>
                                                 </td>
                                             </tr>

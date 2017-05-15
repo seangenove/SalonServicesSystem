@@ -13,7 +13,7 @@
                         <div class="row">
                             <div class="col-xs-12">
                                 <a href="{{ url('/admin/service-providers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                                <a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                {{--<a href="{{ url('/admin/service-providers/' . $serviceprovider->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>--}}
                             </div>
 
                             <div class="table-responsive col-xs-12" style="margin-top: 10px">
@@ -41,7 +41,7 @@
             <div class="col-md-8">
                 <div class="box box-success">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Transactions (Ongoing Services)</h3>
+                        <h3 class="box-title">Transactions</h3>
                     </div>
                     <div class="box-body">
                         <div class="table-responsive col-xs-12" style="margin-top: 10px">
@@ -76,13 +76,13 @@
                                                                                            aria-hidden="true"></i> View
                                                     </button>
                                                 </a>
-                                                <a href="{{ url('/admin/transactions/' . $transaction->id . '/edit') }}"
-                                                   title="Edit Customer">
-                                                    <button class="btn btn-primary btn-xs"><i
-                                                                class="fa fa-pencil-square-o"
-                                                                aria-hidden="true"></i> Edit
-                                                    </button>
-                                                </a>
+                                                {{--<a href="{{ url('/admin/transactions/' . $transaction->id . '/edit') }}"--}}
+                                                   {{--title="Edit Customer">--}}
+                                                    {{--<button class="btn btn-primary btn-xs"><i--}}
+                                                                {{--class="fa fa-pencil-square-o"--}}
+                                                                {{--aria-hidden="true"></i> Edit--}}
+                                                    {{--</button>--}}
+                                                {{--</a>--}}
                                             </div>
                                         </td>
                                     </tr>

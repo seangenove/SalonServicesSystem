@@ -31,7 +31,7 @@ class VisitsController extends Controller
         } else {
             $visits = Visit::paginate($perPage);
         }
-
+//dd($visits);
         return view('admin.visits.index', compact('visits'));
     }
 
