@@ -16,7 +16,11 @@
                     {{--<div class="panel-heading">Categories</div>--}}
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-11"></div>
+                            <div class="col-xs-2">
+                                <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-sm" title="Add New Category">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                </a>
+                            </div>
                             <div class="col-xs-1">
                                 {{--{!! Form::open(['method' => 'GET', 'url' => '/admin/categories', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}--}}
                                 {{--<div class="input-group">--}}
@@ -28,9 +32,7 @@
                                     {{--</span>--}}
                                 {{--</div>--}}
                                 {{--{!! Form::close() !!}--}}
-                                <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-sm" title="Add New Category">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                                </a>
+
                             </div>
                         </div>
 

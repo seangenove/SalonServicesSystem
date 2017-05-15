@@ -18,14 +18,15 @@ class ServicesController extends Controller
      * @return \Illuminate\View\View
      */
 
-    private function getCategoryNames()
+    private function getServiceProviderNames()
     {
-        $category_names = [];
-        $allCategories = \App\Category::all();
-        foreach ($allCategories as $categories) {
-            $category_names[$categories->id] = $categories->name;
+        $sp_names = [];
+        $allSP = ServiceProvider::all();
+        foreach ($allSP as $service_provider) {
+//            dd($service_provider->id);
+            $sp_names[$service_provider->id] = $service_provider->last_name.", ".$service_provider->first_name;
         }
-        return $category_names;
+        return $sp_names;
     }
 
     private function validateForm($request)
@@ -95,9 +96,13 @@ class ServicesController extends Controller
      */
     public function show($id)
     {
-        $service = Service::findOrFail($id);
 
-        return view('admin.services.show', compact('service'));
+        $service = Service::findOrFail($id);
+        $service_provider_instance = ServiceProvider::all()->where('id', $service->spid)[0];
+//        dd($service_provider_instance);
+        $service_provider = $service_provider_instance->last_name . ", " . $service_provider_instance->first_name;
+        return view('admin.services.show', compact('service'))
+            ->with('service_provider', $service_provider);
     }
 
     /**
@@ -109,9 +114,15 @@ class ServicesController extends Controller
      */
     public function edit($id)
     {
+        $service_providers = ServiceProvider::all();
         $service = Service::findOrFail($id);
-
-        return view('admin.services.edit', compact('service'));
+//        $services = Service::all();
+//        dd($service_providers);
+//            dd($this->getServiceProviderNames());
+        return view('admin.services.edit', compact('service'))
+            ->with(['sp_names' => $this->getServiceProviderNames()])
+            ->with('service_providers', $service_providers);
+//            ->with('services', $services);
     }
 
     /**

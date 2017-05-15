@@ -3,12 +3,12 @@
 @section('content')
     <div class="content">
         <div class="row">
-            @include('admin.sidebar')
+{{--            @include('admin.sidebar')--}}
 
             <div class="col-md-12">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Service {{ $service->name }}</h3>
+                        <h3 class="box-title"><strong>Service: </strong>{{ $service->name }}</h3>
                     </div>
                     <div class="box-body">
 
@@ -33,9 +33,13 @@
                             <table class="table table-borderless">
                                 <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $service->id }}</td>
+                                        <th>Service ID</th><td>{{ $service->id }}</td>
                                     </tr>
-                                    <tr><th> Name </th><td> {{ $service->name }} </td></tr><tr><th> Price </th><td> {{ $service->price }} </td></tr><tr><th> Category Id </th><td> {{ $service->category_id }} </td></tr>
+                                    <tr><th> Name </th><td> {{ $service->name }} </td></tr>
+                                    <tr><th> Price </th><td> {{ $service->price }} </td></tr>
+                                    <tr><th> Category </th><td> {{ $service->category }} </td></tr>
+                                    <tr><th> Service Provider </th><td> {{ $service_provider }} </td></tr>
+                                    <tr><th> Description </th><td> {{ $service->description }} </td></tr>
                                 </tbody>
                             </table>
                         </div>

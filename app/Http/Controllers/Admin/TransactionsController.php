@@ -104,20 +104,33 @@ class TransactionsController extends Controller
      */
     public function show($id)
     {
-        $transaction = Transaction::findOrFail($id);
-        $service = Service::findOrFail($transaction->service_id)->name;
+        $visits = Visit::all()->where('transactionId', $id)->count();
+        $detailed_transaction = DB::table('transactions')
+            ->where('transactions.id', $id)
+            ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
+            ->select('transactions.*',
+                'service_requests.date_requested',
+                'service_requests.date_accepted',
+                'service_requests.service_id',
+                'service_requests.customer_id',
+                'service_requests.service_provider_id')
+            ->get()[0];
 
-        $customer_instance = Customer::findOrFail($transaction->customer_id);
+        $service = Service::find($detailed_transaction->service_id)->name;
+
+
+        $customer_instance = Customer::findOrFail($detailed_transaction->customer_id);
         $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
 
-        $service_provider_instance = Customer::findOrFail($transaction->service_provider_id);
+        $service_provider_instance = Customer::findOrFail($detailed_transaction->service_provider_id);
         $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
 
 
-        return view('admin.transactions.show', compact('transaction'))
+        return view('admin.transactions.show', compact('detailed_transaction'))
             ->with('customer', $customer)
             ->with('service_provider', $service_provider)
-            ->with('service', $service);
+            ->with('service', $service)
+            ->with('visits', $visits);
     }
 
     /**

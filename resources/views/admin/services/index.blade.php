@@ -10,8 +10,12 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-11"></div>
-                            <div class="col-xs-1">
+                            <div class="col-xs-2">
+                                <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-sm" title="Add New Category">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                                </a>
+                            </div>
+                            {{--<div class="col-xs-1">--}}
                                 {{--{!! Form::open(['method' => 'GET', 'url' => '/admin/categories', 'class' => 'navbar-form navbar-right', 'role' => 'search'])  !!}--}}
                                 {{--<div class="input-group">--}}
                                 {{--<input type="text" class="form-control" name="search" placeholder="Search...">--}}
@@ -22,10 +26,8 @@
                                 {{--</span>--}}
                                 {{--</div>--}}
                                 {{--{!! Form::close() !!}--}}
-                                <a href="{{ url('/admin/categories/create') }}" class="btn btn-success btn-sm" title="Add New Category">
-                                    <i class="fa fa-plus" aria-hidden="true"></i> Add New
-                                </a>
-                            </div>
+
+                            {{--</div>--}}
                         </div>
 
                         <div class="row">
@@ -49,7 +51,7 @@
                                             <td>{{ $service->id }}</td>
                                             <td>{{ $service->name }}</td>
                                             <td>{{ $service->price }}</td>
-                                            <td>{{ $service->service_provider }}</td>
+                                            <td>{{ $service->category }}</td>
                                             @foreach($serviceproviders as $serviceprovider)
                                                 @if($service->spid == $serviceprovider->id)
                                                     <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>
@@ -58,13 +60,13 @@
                                             <td>{{ $service->category }}</td>
                                             <td class="table-commands">
                                                 <div class="row">
-                                                    <a href="{{ url('/admin/categories/' . $service->id) }}"
+                                                    <a href="{{ url('/admin/services/' . $service->id) }}"
                                                        title="View Service Provider">
                                                         <button class="btn btn-info btn-xs"><i class="fa fa-eye"
                                                                                                aria-hidden="true"></i> View
                                                         </button>
                                                     </a>
-                                                    <a href="{{ url('/admin/categories/' . $service->id . '/edit') }}"
+                                                    <a href="{{ url('/admin/services/' . $service->id . '/edit') }}"
                                                        title="Edit Service Provider">
                                                         <button class="btn btn-primary btn-xs"><i
                                                                     class="fa fa-pencil-square-o"

@@ -97,13 +97,15 @@
                     </div>
                     <div class="box-body">
                         <div class="row">
-                            <div class="col-xs-10"></div>
-                            <div class="col-xs-2">
+                            <div class="col-xs-10">
                                 <a href="{{ url('/admin/service-providers/create') }}" class="btn btn-success btn-sm"
                                    title="Add New Service Provider">
                                     <i class="fa fa-plus" aria-hidden="true"></i> Add New
                                 </a>
                             </div>
+                            {{--<div class="col-xs-2">--}}
+
+                            {{--</div>--}}
                         </div>
                         <div class="row">
                             <div class="table-responsive col-xs-12" style="margin-top: 10px">
