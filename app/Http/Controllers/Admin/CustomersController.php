@@ -95,7 +95,7 @@ class CustomersController extends Controller
                 'service_requests.date_accepted',
                 'service_requests.service_id',
                 'service_requests.customer_id',
-                'service_requests.service_provider_id')
+                'service_requests.service_providers')
             ->where('service_requests.customer_id', $id)
             ->get();
 

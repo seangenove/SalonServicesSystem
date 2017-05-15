@@ -99,10 +99,10 @@ class ServiceProvidersController extends Controller
                 'service_requests.date_accepted',
                 'service_requests.service_id',
                 'service_requests.customer_id',
-                'service_requests.service_provider_id')
-            ->where('service_requests.service_provider_id', $id)
+                'service_requests.service_providers')
+            ->where('service_requests.service_providers', $id)
             ->get();
-
+//            dd($detailed_transactions);
 //        dd($detailed_transactions);
         return view('admin.service-providers.show', compact('serviceprovider'))
             ->with('transactions', $detailed_transactions);

@@ -41,7 +41,7 @@
                                         <th>Category</th>
                                         <th>Service Provider</th>
                                         <th>Description</th>
-                                        <th>Actions</th>
+                                        {{--<th>Actions</th>--}}
                                     </tr>
                                     </thead>
 
@@ -58,14 +58,14 @@
                                                 @endif
                                             @endforeach
                                             <td>{{ $service->category }}</td>
-                                            <td class="table-commands">
-                                                <div class="row">
-                                                    <a href="{{ url('/admin/services/' . $service->id) }}"
-                                                       title="View Service Provider">
-                                                        <button class="btn btn-info btn-xs"><i class="fa fa-eye"
-                                                                                               aria-hidden="true"></i> View
-                                                        </button>
-                                                    </a>
+                                            {{--<td class="table-commands">--}}
+                                                {{--<div class="row">--}}
+                                                    {{--<a href="{{ url('/admin/services/' . $service->id) }}"--}}
+                                                       {{--title="View Service Provider">--}}
+                                                        {{--<button class="btn btn-info btn-xs"><i class="fa fa-eye"--}}
+                                                                                               {{--aria-hidden="true"></i> View--}}
+                                                        {{--</button>--}}
+                                                    {{--</a>--}}
                                                     {{--<a href="{{ url('/admin/services/' . $service->id . '/edit') }}"--}}
                                                        {{--title="Edit Service Provider">--}}
                                                         {{--<button class="btn btn-primary btn-xs"><i--}}
@@ -73,8 +73,8 @@
                                                                     {{--aria-hidden="true"></i> Edit--}}
                                                         {{--</button>--}}
                                                     {{--</a>--}}
-                                                </div>
-                                            </td>
+                                                {{--</div>--}}
+                                            {{--</td>--}}
                                         </tr>
                                     @endforeach
                                     </tbody>

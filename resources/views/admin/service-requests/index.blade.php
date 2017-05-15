@@ -42,7 +42,9 @@
                                         {{--<th>Visits</th>--}}
                                         <th>Customer</th>
                                         <th>Service Provider</th>
-                                        <th>Actions</th>
+                                        <th>Date Requested</th>
+                                        <th>Date Accepted</th>
+                                        <th>Service</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -60,27 +62,37 @@
                                                     {{--@endforeach--}}
                                                 <td>
                                                     @foreach($customers as $customer)
-                                                        @if($customer->id == $servicerequest->customer_id)
+                                                @if($customer->id == $servicerequest->customer_id)
                                                             {{ $customer->last_name.", ".$customer->first_name }}
                                                         @endif
                                                     @endforeach
                                                 </td>
                                                 <td>
                                                     @foreach($service_providers as $service_provider)
-                                                        @if($service_provider->id == $servicerequest->service_provider_id)
+                                                        @if($service_provider->id == $servicerequest->service_providers)
                                                             {{ $service_provider->last_name.", ".$service_provider->first_name }}
                                                         @endif
                                                     @endforeach
                                                 </td>
-                                                <td class="table-commands">
-                                                    <div class="row">
-                                                        <a href="{{ url('/admin/service-requests/' . $servicerequest->id) }}"
-                                                           title="View ServiceRequest">
-                                                            <button class="btn btn-info btn-xs"><i class="fa fa-eye"
-                                                                                                   aria-hidden="true"></i>
-                                                                View
-                                                            </button>
-                                                        </a>
+                                                <td>{{ $servicerequest->date_requested }}</td>
+                                                <td>{{ $servicerequest->date_accepted }}</td>
+                                                <td>
+                                                    @foreach($services as $service)
+                                                        @if($service->id == $servicerequest->service_id)
+                                                            {{ $service->name }}
+                                                        @endif
+                                                    @endforeach
+                                                </td>
+
+                                                {{--<td class="table-commands">--}}
+                                                    {{--<div class="row">--}}
+                                                        {{--<a href="{{ url('/admin/service-requests/' . $servicerequest->id) }}"--}}
+                                                           {{--title="View ServiceRequest">--}}
+                                                            {{--<button class="btn btn-info btn-xs"><i class="fa fa-eye"--}}
+                                                                                                   {{--aria-hidden="true"></i>--}}
+                                                                {{--View--}}
+                                                            {{--</button>--}}
+                                                        {{--</a>--}}
                                                         {{--<a href="{{ url('/admin/service-requests/' . $servicerequest->id . '/edit') }}"--}}
                                                            {{--title="Edit ServiceRequest">--}}
                                                             {{--<button class="btn btn-primary btn-xs"><i--}}
@@ -88,8 +100,8 @@
                                                                         {{--aria-hidden="true"></i> Edit--}}
                                                             {{--</button>--}}
                                                         {{--</a>--}}
-                                                    </div>
-                                                </td>
+                                                    {{--</div>--}}
+                                                {{--</td>--}}
                                             </tr>
                                         @endforeach
                                     </tbody>

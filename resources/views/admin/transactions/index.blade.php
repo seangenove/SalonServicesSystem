@@ -35,7 +35,7 @@
                                         <th>Customer</th>
                                         <th>Service Provider</th>
                                         <th>Date Started</th>
-                                        <th>Actions</th>
+                                        <th>Date Finished</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -59,21 +59,21 @@
                                             </td>
                                             <td>
                                                 @foreach($service_providers as $service_provider)
-                                                    @if($service_provider->id == $transaction->service_provider_id)
+                                                    @if($service_provider->id == $transaction->service_providers)
                                                         {{ $service_provider->last_name.", ".$service_provider->first_name }}
                                                     @endif
                                                 @endforeach
                                             </td>
                                             <td>{{ $transaction->date_started }}</td>
-                                            <td class="table-commands">
-                                                <div class="row">
-                                                    <a href="{{ url('/admin/transactions/' . $transaction->id) }}"
-                                                       title="View ServiceRequest">
-                                                        <button class="btn btn-info btn-xs"><i class="fa fa-eye"
-                                                                                               aria-hidden="true"></i>
-                                                            View
-                                                        </button>
-                                                    </a>
+                                            {{--<td class="table-commands">--}}
+                                                {{--<div class="row">--}}
+                                                    {{--<a href="{{ url('/admin/transactions/' . $transaction->id) }}"--}}
+                                                       {{--title="View ServiceRequest">--}}
+                                                        {{--<button class="btn btn-info btn-xs"><i class="fa fa-eye"--}}
+                                                                                               {{--aria-hidden="true"></i>--}}
+                                                            {{--View--}}
+                                                        {{--</button>--}}
+                                                    {{--</a>--}}
                                                     {{--<a href="{{ url('/admin/transactions/' . $transaction->id . '/edit') }}"--}}
                                                        {{--title="Edit ServiceRequest">--}}
                                                         {{--<button class="btn btn-primary btn-xs"><i--}}
@@ -81,8 +81,9 @@
                                                                     {{--aria-hidden="true"></i> Edit--}}
                                                         {{--</button>--}}
                                                     {{--</a>--}}
-                                                </div>
-                                            </td>
+                                                {{--</div>--}}
+                                            {{--</td>--}}
+                                            <td>{{$transaction->date_finished}}</td>
                                         </tr>
                                     @endforeach
                                     </tbody>

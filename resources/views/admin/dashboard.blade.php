@@ -68,7 +68,35 @@
                                     <p>Pending Customer Registrations</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                                <a href="/admin/customers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12">
+                            <!-- small box -->
+                            <div class="small-box bg-lime-active">
+                                <div class="inner">
+                                    <h3>{{$noOfServiceProviders}}</h3>
+
+                                    <p>Number of Registered Service Providers</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person"></i>
+                                </div>
+                                <a href="/admin/service-providers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-xs-12">
+                            <!-- small box -->
+                            <div class="small-box bg-blue-active">
+                                <div class="inner">
+                                    <h3>{{$noOfCustomers}}</h3>
+
+                                    <p>Number of Registered Customers</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person"></i>
                                 </div>
                                 <a href="/admin/customers" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                             </div>
