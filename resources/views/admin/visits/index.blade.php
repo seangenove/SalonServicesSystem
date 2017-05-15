@@ -28,11 +28,11 @@
                                     <thead>
                                     <tr>
                                         <th>ID</th>
-                                        <th>Last Name</th>
-                                        <th>First Name</th>
-                                        <th>Email</th>
-                                        <th>Address</th>
-                                        <th>Commands</th>
+                                        <th>Description</th>
+                                        <th>Scheduled Date</th>
+                                        <th>Transaction ID</th>
+                                        <th>Status</th>
+                                        {{--<th>Commands</th>--}}
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -44,14 +44,14 @@
                                                 <td>{{ $visit->scheduled_date }}</td>
                                                 <td>{{ $visit->transactionId }}</td>
                                                 <td>{{ $visit->status }}</td>
-                                                <td class="table-commands">
-                                                    <div class="row">
-                                                        <a href="{{ url('/admin/visits/' . $visit->id) }}"
-                                                           title="View">
-                                                            <button class="btn btn-info btn-xs"><i class="fa fa-eye"
-                                                                                                   aria-hidden="true"></i> View
-                                                            </button>
-                                                        </a>
+                                                {{--<td class="table-commands">--}}
+                                                    {{--<div class="row">--}}
+                                                        {{--<a href="{{ url('/admin/visits/' . $visit->id) }}"--}}
+                                                           {{--title="View">--}}
+                                                            {{--<button class="btn btn-info btn-xs"><i class="fa fa-eye"--}}
+                                                                                                   {{--aria-hidden="true"></i> View--}}
+                                                            {{--</button>--}}
+                                                        {{--</a>--}}
                                                         {{--<a href="{{ url('/admin/visitss/' . $visit->id . '/edit') }}"--}}
                                                            {{--title="Edit Customer">--}}
                                                             {{--<button class="btn btn-primary btn-xs"><i--}}
@@ -59,8 +59,8 @@
                                                                         {{--aria-hidden="true"></i> Edit--}}
                                                             {{--</button>--}}
                                                         {{--</a>--}}
-                                                    </div>
-                                                </td>
+                                                    {{--</div>--}}
+                                                {{--</td>--}}
                                             </tr>
                                         {{--@endif--}}
                                     @endforeach
