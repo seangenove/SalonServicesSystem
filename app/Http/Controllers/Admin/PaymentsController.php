@@ -19,7 +19,7 @@ class PaymentsController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->get('search');
-        $perPage = 25;
+        $perPage = 500;
 
         if (!empty($keyword)) {
             $payments = Payment::where('amount', 'LIKE', "%$keyword%")

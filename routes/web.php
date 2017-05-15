@@ -119,16 +119,28 @@ Route::group(['middleware' => ['auth:web']], function () {
     });
 });
 
+Route::post('/register-sp', function(\Illuminate\Http\Request $request){
+    $requestData = $request->all();
+//    dd($requestData);
+    \App\ServiceProvider::create($requestData);
+
+    \Illuminate\Support\Facades\Session::flash('flash_message', 'ServiceProvider added!');
+
+    return redirect('admin/service-providers');
+});
+
 Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
+    $ip_address = 'localhost';
 
-    return redirect(url('http://slu.salonpas.com/WebTek/requests.htm?id='.$id));
+    return redirect(url('http://'.$ip_address.':3000?id='.$id));
 });
 Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
+    $ip_address = 'localhost';
 
-    return redirect(url('http://slu.salonpas.com/WebTek/requests.htm?id='.$id));
+    return redirect(url('http://'.$ip_address.':8080/WebTek/requests.htm?id='.$id));
 });
-Route::get('/register-sp', function(){
-    return view('auth.spLogin');
-});
+//Route::get('/register-sp', function(){
+//    return view('auth.spLogin');
+//});
