@@ -259,5 +259,8 @@
 
 <!-- Bootstrap core JavaScript -->
 </body>
+<script src="/homepage/js/jquery.min.js"></script>
+<script src="/homepage/js/tether.min.js"></script>
+<script src="/homepage/js/bootstrap.min.js"></script>
 
 </html>

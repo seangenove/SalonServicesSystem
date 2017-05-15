@@ -16,12 +16,6 @@
 Route::get('/', function () {
     return view('homepage');
 });
-//Route::get('/customer', function () {
-////        $this
-////
-////    dd('Customer module not yen integrated.');
-//    return view('customer');
-//})->middleware('auth:customer');
 
 Auth::routes();
 
@@ -55,6 +49,7 @@ Route::group(['middleware' => ['auth:web']], function () {
     Route::resource('admin/service-requests', 'Admin\\ServiceRequestsController');
     Route::resource('admin/transactions', 'Admin\\TransactionsController');
     Route::resource('admin/payments', 'Admin\\PaymentsController');
+    Route::resource('admin/visits', 'Admin\\VisitsController');
 
     Route::post('/xyz/update-request-status', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
@@ -104,20 +99,20 @@ Route::group(['middleware' => ['auth:web']], function () {
             $role = 'customer';
         }
 
-//        $auth_users = \App\User::all();
-
-
-
-        foreach ($users as $user){
-            $user->request_status = 'accepted';
-            $user->save();
-            $new_user = new \App\User();
-            $new_user->name = $user->last_name.", ".$user->first_name;
-            $new_user->email = $user->email;
-            $new_user->password = bcrypt($user->password);
-            $new_user->role = $role;
-            $new_user->user_id = $user->id;
-            $new_user->save();
+        if (!($users->count() == 0)){
+            foreach ($users as $user){
+                $user->request_status = 'accepted';
+                $user->save();
+                $new_user = new \App\User();
+                $new_user->name = $user->last_name.", ".$user->first_name;
+                $new_user->email = $user->email;
+                $new_user->password = bcrypt($user->password);
+                $new_user->role = $role;
+                $new_user->user_id = $user->id;
+                $new_user->save();
+            }
+        }else{
+            dd();
         }
 
         return redirect()->back();
@@ -127,16 +122,13 @@ Route::group(['middleware' => ['auth:web']], function () {
 Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
 
-    return redirect(url('http://slu.salonpas.com/WeBTek/'.$id));
-
-    return redirect(url('http://slu.salonpas.com/WebTek/'.$id."/requests.htm"));
+    return redirect(url('http://slu.salonpas.com/WebTek/requests.htm?id='.$id));
 });
 Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
-    return redirect(url('http://slu.salonpas.com/WeBTek/'.$id)."/requests");
+
+    return redirect(url('http://slu.salonpas.com/WebTek/requests.htm?id='.$id));
 });
 Route::get('/register-sp', function(){
     return view('auth.spLogin');
 });
-
-Route::resource('admin/visits', 'Admin\\VisitsController');
