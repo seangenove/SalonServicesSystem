@@ -36,12 +36,16 @@ Route::group(['middleware' => ['auth:web']], function () {
             ->where('request_status', 'pending')->count();
         $noOfCustomerRequests = \App\Customer::all()
             ->where('request_status', 'pending')->count();
+        $noOfServiceProviders = \App\ServiceProvider::all()->count();
+        $noOfCustomers = \App\Customer::all()->count();
 
         return view('admin.dashboard')
             ->with('noOfTransactions', $noOfTransactions)
             ->with('noOfServiceRequests', $noOfServiceRequests)
             ->with('noOfSPRequests', $noOfSPRequests)
-            ->with('noOfCustomerRequests', $noOfCustomerRequests);
+            ->with('noOfCustomerRequests', $noOfCustomerRequests)
+            ->with('noOfServiceProviders', $noOfServiceProviders)
+            ->with('noOfCustomers', $noOfCustomers);
     });
 
     Route::resource('admin/customers', 'Admin\\CustomersController');
@@ -94,13 +98,26 @@ Route::group(['middleware' => ['auth:web']], function () {
 
         if($table == "service_providers"){
             $users = \App\ServiceProvider::all()->where('request_status', 'pending');
+            $role = 'service provider';
         } else{
             $users = \App\Customer::all()->where('request_status', 'pending');
+            $role = 'customer';
         }
+
+//        $auth_users = \App\User::all();
+
+
 
         foreach ($users as $user){
             $user->request_status = 'accepted';
             $user->save();
+            $new_user = new \App\User();
+            $new_user->name = $user->last_name.", ".$user->first_name;
+            $new_user->email = $user->email;
+            $new_user->password = bcrypt($user->password);
+            $new_user->role = $role;
+            $new_user->user_id = $user->id;
+            $new_user->save();
         }
 
         return redirect()->back();
@@ -110,10 +127,11 @@ Route::group(['middleware' => ['auth:web']], function () {
 Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
 
-    return redirect(url('http://google.com/'.$id));
+    return redirect(url('http://slu.salonpas.com/WeBTek/'.$id));
 });
 Route::get('/service-provider', function(){
-    return view('serviceProvider');
+    $id = \Illuminate\Support\Facades\Auth::user()->user_id;
+    return redirect(url('http://slu.salonpas.com/WeBTek/'.$id)."/requests");
 });
 Route::get('/register-sp', function(){
     return view('auth.spLogin');

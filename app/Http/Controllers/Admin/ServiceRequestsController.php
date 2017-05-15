@@ -49,6 +49,7 @@ class ServiceRequestsController extends Controller
         $customers = Customer::all();
         $transactions = Transaction::all();
         $service_providers = ServiceProvider::all();
+        $services = Service::all();
 
 //        dd($servicerequests);
 
@@ -58,7 +59,8 @@ class ServiceRequestsController extends Controller
         return view('admin.service-requests.index', compact('servicerequests'))
             ->with('customers', $customers)
             ->with('transactions', $transactions)
-            ->with('service_providers', $service_providers);
+            ->with('service_providers', $service_providers)
+            ->with('services', $services);
     }
 
     /**
@@ -105,7 +107,7 @@ class ServiceRequestsController extends Controller
         $customer_instance = Customer::findOrFail($servicerequest->customer_id);
         $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
 
-        $service_provider_instance = Customer::findOrFail($servicerequest->service_provider_id);
+        $service_provider_instance = Customer::findOrFail($servicerequest->service_providers);
         $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
 
         return view('admin.service-requests.show', compact('servicerequest'))

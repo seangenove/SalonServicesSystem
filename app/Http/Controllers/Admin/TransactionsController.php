@@ -55,7 +55,7 @@ class TransactionsController extends Controller
                 'service_requests.date_accepted',
                 'service_requests.service_id',
                 'service_requests.customer_id',
-                'service_requests.service_provider_id')
+                'service_requests.service_providers')
             ->get();
         $visits = Visit::all();
 
@@ -113,7 +113,7 @@ class TransactionsController extends Controller
                 'service_requests.date_accepted',
                 'service_requests.service_id',
                 'service_requests.customer_id',
-                'service_requests.service_provider_id')
+                'service_requests.service_providers')
             ->get()[0];
 
         $service = Service::find($detailed_transaction->service_id)->name;
@@ -122,7 +122,7 @@ class TransactionsController extends Controller
         $customer_instance = Customer::findOrFail($detailed_transaction->customer_id);
         $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
 
-        $service_provider_instance = Customer::findOrFail($detailed_transaction->service_provider_id);
+        $service_provider_instance = Customer::findOrFail($detailed_transaction->service_providers);
         $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
 
 

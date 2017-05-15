@@ -77,7 +77,7 @@ class PaymentsController extends Controller
         $customer_instance = Customer::findOrFail($transaction->customer_id);
         $customer = strtoupper($customer_instance->last_name).", ".$customer_instance->first_name;
 
-        $service_provider_instance = Customer::findOrFail($transaction->service_provider_id);
+        $service_provider_instance = Customer::findOrFail($transaction->service_providers);
         $service_provider = strtoupper( $service_provider_instance->last_name).", ". $service_provider_instance->first_name;
 
 
