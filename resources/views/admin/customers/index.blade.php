@@ -35,7 +35,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($customers as $customer)
-                                        @if($customer->request_status == 'pending')
+                                        @if($customer->request_status == 'pending' || $customer->request_status == 'rejected')
                                             <tr class="clickable-row" data-href="customers/{{$customer->id}}">
                                                 {{--<td>{{ $customer->id }}</td>--}}
                                                 <td>{{ $customer->last_name }}</td>
@@ -51,6 +51,7 @@
                                                            'style' => 'display:inline'
                                                        ]) !!}
                                                         {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
+                                                        {!! Form::hidden('table', 'customer', ['class' => 'form-control']) !!}
                                                         {!! Form::hidden('request_status', 'accepted', ['class' => 'form-control']) !!}
                                                         {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Accept', array(
                                                                 'type' => 'submit',

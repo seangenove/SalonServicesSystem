@@ -53,13 +53,16 @@ Route::group(['middleware' => ['auth:web']], function () {
 
     Route::post('/xyz/update-request-status', function(\Illuminate\Http\Request $request){
         $id = $request->get('id');
-        $table= $request->get('table');
+        $table = $request->get('table');
         $requestStatus = $request->get('request_status');
 
+//        dd($table);
         if($table == "service_providers"){
             $user = \App\ServiceProvider::findOrFail($id);
             $role = 'service provider';
         } else{
+//            dd(\App\Customer::all()->where('id', $id));
+//            dd($id);
             $user = \App\Customer::findOrFail($id);
             $role = 'customer';
         }
@@ -68,20 +71,21 @@ Route::group(['middleware' => ['auth:web']], function () {
         $user->save();
 
         // all users in Users Table
-        $auth_users = \App\User::all();
 
-        $new_user = new \App\User();
+        if($requestStatus == 'accepted'){
+            $auth_users = \App\User::all();
 
+            $new_user = new \App\User();
 
-//        dd($user);
-        foreach ($auth_users as $auth_user){
-            if(!($user->email == $auth_user->email)){
-                $new_user->name = $user->last_name.", ".$user->first_name;
-                $new_user->email = $user->email;
-                $new_user->password = bcrypt($user->password);
-                $new_user->role = $role;
-                $new_user->user_id = $user->id;
-                $new_user->save();
+            foreach ($auth_users as $auth_user){
+                if(!($user->email == $auth_user->email)){
+                    $new_user->name = $user->last_name.", ".$user->first_name;
+                    $new_user->email = $user->email;
+                    $new_user->password = bcrypt($user->password);
+                    $new_user->role = $role;
+                    $new_user->user_id = $user->id;
+                    $new_user->save();
+                }
             }
         }
 
@@ -121,7 +125,15 @@ Route::group(['middleware' => ['auth:web']], function () {
 
 Route::post('/register-sp', function(\Illuminate\Http\Request $request){
     $requestData = $request->all();
-//    dd($requestData);
+    \App\ServiceProvider::create($requestData);
+
+    \Illuminate\Support\Facades\Session::flash('flash_message', 'ServiceProvider added!');
+
+    return redirect('admin/service-providers');
+});
+
+Route::post('/register-cus', function(\Illuminate\Http\Request $request){
+    $requestData = $request->all();
     \App\ServiceProvider::create($requestData);
 
     \Illuminate\Support\Facades\Session::flash('flash_message', 'ServiceProvider added!');
@@ -135,12 +147,10 @@ Route::get('/customer', function(){
 
     return redirect(url('http://'.$ip_address.':3000?id='.$id));
 });
+
 Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
     $ip_address = 'localhost';
 
     return redirect(url('http://'.$ip_address.':8080/WebTek/requests.htm?id='.$id));
 });
-//Route::get('/register-sp', function(){
-//    return view('auth.spLogin');
-//});

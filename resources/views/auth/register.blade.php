@@ -62,27 +62,39 @@
                     </div>
                 </div>
                 <div class="form-bottom">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register-cus') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <div class="form-group{{ $errors->has('last_name') ? ' has-error' : '' }}">
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}"
-                                       placeholder="Username" required autofocus>
+                                <input id="last_name" type="text" class="form-control" name="last_name"
+                                       placeholder="Last Name" required>
 
-                                @if ($errors->has('name'))
+                                @if ($errors->has('last_name'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
+                                            <strong>{{ $errors->first('last_name') }}</strong>
+                                        </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('first_name') ? ' has-error' : '' }}">
+                            <div class="col-md-12">
+                                <input id="first_name" type="text" class="form-control" name="first_name"
+                                       placeholder="First Name" required>
+
+                                @if ($errors->has('last_name'))
+                                    <span class="help-block">
+                                            <strong>{{ $errors->first('first_name') }}</strong>
+                                        </span>
                                 @endif
                             </div>
                         </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-
                             <div class="col-md-12">
                                 <input id="email" type="email" class="form-control" name="email"
-                                       value="{{ old('email') }}" placeholder="Email" required>
+                                       placeholder="Email" required>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -92,12 +104,24 @@
                             </div>
                         </div>
 
+                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                            <div class="col-md-12">
+                                <input id="address" type="text" class="form-control" name="address"
+                                       placeholder="Address" required>
+
+                                @if ($errors->has('address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                             <div class="col-md-12">
                                 <input id="password" type="password" class="form-control" name="password"
-                                       placeholder="password" required>
-
+                                       placeholder="Password" required>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -107,7 +131,6 @@
                         </div>
 
                         <div class="form-group">
-
                             <div class="col-md-12">
                                 <input id="password-confirm" type="password" class="form-control"
                                        name="password_confirmation" placeholder="Confirm Password" required>

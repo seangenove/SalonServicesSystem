@@ -35,8 +35,7 @@
                                     </thead>
                                     <tbody>
                                     @foreach($serviceproviders as $serviceprovider)
-{{--                                        {{dd($serviceproviders)}}--}}
-                                        @if($serviceprovider->request_status == 'pending')
+                                        @if($serviceprovider->request_status == 'pending' || $serviceprovider->request_status == 'rejected')
 
                                             <tr class="clickable-row" data-href="service-providers/{{$serviceprovider->id}}">
                                                 {{--<td>{{ $serviceprovider->id }}</td>--}}
@@ -53,6 +52,7 @@
                                                            'style' => 'display:inline'
                                                        ]) !!}
                                                         {!! Form::hidden('id', null, ['class' => 'form-control']) !!}
+                                                        {!! Form::hidden('table', 'service_providers', ['class' => 'form-control']) !!}
                                                         {!! Form::hidden('request_status', 'accepted', ['class' => 'form-control']) !!}
                                                         {!! Form::button('<i class="fa fa-check" aria-hidden="true"></i> Accept', array(
                                                                 'type' => 'submit',
