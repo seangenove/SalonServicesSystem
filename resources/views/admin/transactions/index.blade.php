@@ -40,15 +40,18 @@
                                     </thead>
                                     <tbody>
                                     @foreach($transactions as $transaction)
+                                        {{--{{dd($transaction)}}--}}
                                         <tr class="clickable-row"
                                             data-href="transactions/{{$transaction->id}}">
                                             {{--<td>{{ $serviceprovider->id }}</td>--}}
                                             <td>{{ $transaction->id }}</td>
                                             <td>{{ $transaction->status }}</td>
-                                            <td>{{ $transaction->visits }}</td>
+
+                                            <td>{{ $visits->where('visitId', $transaction->id)->count() }}</td>
 
                                             <td>
                                                 @foreach($customers as $customer)
+                                                    {{--{{dd($transaction->customer_id)}}--}}
                                                     @if($customer->id == $transaction->customer_id)
                                                         {{ $customer->last_name.", ".$customer->first_name }}
                                                     @endif

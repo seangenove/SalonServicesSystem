@@ -265,6 +265,7 @@ desired effect
                 <li class="header">Monitoring</li>
                 <li class="{{ Request::is('admin/service-requests*') ? 'active' : '' }}"><a href="{{ url('/admin/service-requests')  }}"><i class="fa fa-podcast"></i>&nbsp;<span> Service Request </span></a></li>
                 <li class="{{ Request::is('admin/transactions*') ? 'active' : '' }}"><a href="{{ url('/admin/transactions')  }}"><i class="fa fa-handshake-o"></i>&nbsp;<span> Transaction </span></a></li>
+                <li class="{{ Request::is('admin/visits*') ? 'active' : '' }}"><a href="{{ url('/admin/visits')  }}"><i class="fa fa-map-marker"></i>&nbsp;<span> Visits </span></a></li>
                 <li class="{{ Request::is('admin/payments*') ? 'active' : '' }}"><a href="{{ url('/admin/payments')  }}"><i class="fa fa-money"></i>&nbsp;<span> Payment </span></a></li>
                 {{--<li class="treeview">--}}
                     {{--<a href="#"><i class="fa fa-scissors"></i>&nbsp; <span>Services</span>--}}

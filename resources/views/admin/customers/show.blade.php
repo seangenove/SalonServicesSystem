@@ -3,31 +3,29 @@
 @section('content')
     <div class="content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Customer: {{ $customer->first_name . " " . $customer->last_name }}</h3>
+                        <h3 class="box-title"><strong>Customer: </strong>{{ $customer->first_name . " " . $customer->last_name }}</h3>
                     </div>
 
                     <div class="box-body">
                         <div class="row">
                             <div class="col-xs-12">
-                                <a href="{{ url('/admin/service-providers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
-                                <a href="{{ url('/admin/service-providers/' . $customer->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
+                                <a href="{{ url('/admin/customers') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>
+                                <a href="{{ url('/admin/customers/' . $customer->id . '/edit') }}" title="Edit ServiceProvider"><button class="btn btn-primary btn-xs"><i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</button></a>
                             </div>
 
                             <div class="table-responsive col-xs-12" style="margin-top: 10px">
                                 <table class="table table-borderless">
                                     <tbody>
                                     <tr>
-                                        <th>ID</th><td>{{ $customer->id }}</td>
+                                        <th>Customer ID</th><td>{{ $customer->id }}</td>
                                     </tr>
                                     <tr><th> Last Name </th><td> {{ $customer->last_name }} </td></tr>
                                     <tr><th> First Name </th><td> {{ $customer->first_name }} </td></tr>
-                                    <tr><th> Contact Number </th><td> {{ $customer->contact_number }} </td></tr>
+                                    <tr><th> Address </th><td> {{ $customer->address }} </td></tr>
                                     <tr><th> Email </th><td> {{ $customer->email }} </td></tr>
-                                    <tr><th> Description </th><td> {{ $customer->description }} </td></tr>
-                                    <tr><th> Remarks </th><td> {{ $customer->remarks }} </td></tr>
                                     <tr><th> Request Status </th><td> {{ $customer->request_status }} </td></tr>
                                     </tbody>
                                 </table>
@@ -38,7 +36,7 @@
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">Transactions (Ongoing Services)</h3>
@@ -61,6 +59,7 @@
                                 <tbody>
                                 @foreach($transactions as $transaction)
                                     <tr class="clickable-row" data-href="transactions/{{$transaction->id}}">
+                                        {{--{{dd($transaction)}}--}}
                                         <td>{{ $transaction->id }}</td>
                                         <td>{{ $transaction->status }}</td>
                                         <td>{{ $transaction->date_requested }}</td>

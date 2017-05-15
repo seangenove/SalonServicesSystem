@@ -3,10 +3,10 @@
 @section('content')
     <div class="content">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Service Provider: {{ $serviceprovider->first_name . " " . $serviceprovider->last_name }}</h3>
+                        <h3 class="box-title"><strong>Service Provider:</strong> {{ $serviceprovider->first_name . " " . $serviceprovider->last_name }}</h3>
                     </div>
 
                     <div class="box-body">
@@ -20,7 +20,7 @@
                                 <table class="table table-borderless">
                                     <tbody>
                                         <tr>
-                                            <th>ID</th><td>{{ $serviceprovider->id }}</td>
+                                            <th>Service Provider ID</th><td>{{ $serviceprovider->id }}</td>
                                         </tr>
                                         <tr><th> Last Name </th><td> {{ $serviceprovider->last_name }} </td></tr>
                                         <tr><th> First Name </th><td> {{ $serviceprovider->first_name }} </td></tr>
@@ -38,7 +38,7 @@
             </div>
 
 
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="box box-success">
                     <div class="box-header with-border">
                         <h3 class="box-title">Transactions (Ongoing Services)</h3>

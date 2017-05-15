@@ -94,7 +94,12 @@ class ServiceProvidersController extends Controller
         $serviceprovider = ServiceProvider::findOrFail($id);
         $detailed_transactions = DB::table('transactions')
             ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
-            ->select('transactions.*', 'service_requests.*')
+            ->select('transactions.*',
+                'service_requests.date_requested',
+                'service_requests.date_accepted',
+                'service_requests.service_id',
+                'service_requests.customer_id',
+                'service_requests.service_provider_id')
             ->where('service_requests.service_provider_id', $id)
             ->get();
 

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="box box-default">
                     <div class="box-header with-border">
-                        <h3 class="box-title">ServiceRequest {{ $servicerequest->id }}</h3>
+                        <h3 class="box-title">Service Request {{ $servicerequest->id }}</h3>
                     </div>
                     <div class="box-body">
                         <a href="{{ url('/admin/service-requests') }}" title="Back"><button class="btn btn-warning btn-xs"><i class="fa fa-arrow-left" aria-hidden="true"></i> Back</button></a>

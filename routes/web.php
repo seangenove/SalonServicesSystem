@@ -10,17 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/customer', function(){
-    $id = \Illuminate\Support\Facades\Auth::user()->user_id;
 
-    return redirect(url('http://google.com/'.$id));
-});
-Route::get('/service-provider', function(){
-    return view('serviceProvider');
-});
-Route::get('/register-sp', function(){
-    return view('auth.spLogin');
-});
 
 
 Route::get('/', function () {
@@ -116,8 +106,17 @@ Route::group(['middleware' => ['auth:web']], function () {
         return redirect()->back();
     });
 });
-//Route::prefix('customer')->group(function(){
-//    Route::get('/login', 'Auth\CustomerLoginController@showLoginForm')->name('customer.login');
-//    Route::post('/login', 'Auth\CustomerLoginController@login')->name('customer.login.submit');
-//    Route::get('/', 'Auth\CustomersController@index')->name('customer.dashboard')->middleware('auth:customer');
-//});
+
+Route::get('/customer', function(){
+    $id = \Illuminate\Support\Facades\Auth::user()->user_id;
+
+    return redirect(url('http://google.com/'.$id));
+});
+Route::get('/service-provider', function(){
+    return view('serviceProvider');
+});
+Route::get('/register-sp', function(){
+    return view('auth.spLogin');
+});
+
+Route::resource('admin/visits', 'Admin\\VisitsController');

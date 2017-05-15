@@ -9,7 +9,9 @@ use App\Customer;
 use App\Service;
 use App\ServiceProvider;
 use App\Transaction;
+use App\Visit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class TransactionsController extends Controller
@@ -46,10 +48,22 @@ class TransactionsController extends Controller
         }
         $customers = Customer::all();
         $service_providers = ServiceProvider::all();
+        $detailed_transactions = DB::table('transactions')
+            ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
+            ->select('transactions.*',
+                'service_requests.date_requested',
+                'service_requests.date_accepted',
+                'service_requests.service_id',
+                'service_requests.customer_id',
+                'service_requests.service_provider_id')
+            ->get();
+        $visits = Visit::all();
 
         return view('admin.transactions.index', compact('transactions'))
             ->with('customers', $customers)
-            ->with('service_providers', $service_providers);
+            ->with('service_providers', $service_providers)
+            ->with('transactions', $detailed_transactions)
+            ->with('visits', $visits);
     }
 
     /**
