@@ -158,5 +158,5 @@ Route::get('/service-provider', function(){
 Route::get('/user-logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
 
-    return view('homepage');
+    return redirect('/');
 });
