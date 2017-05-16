@@ -96,16 +96,16 @@ Route::group(['middleware' => ['auth:web']], function () {
         $table = $request->get('table');
 
         if($table == "service_providers"){
-            $users = \App\ServiceProvider::all()->where('request_status', 'pending');
+            $users = \App\ServiceProvider::all()->where('request_status', 'accepted');
             $role = 'service provider';
         } else{
-            $users = \App\Customer::all()->where('request_status', 'pending');
+            $users = \App\Customer::all()->where('request_status', 'accepted');
             $role = 'customer';
         }
 
         if (!($users->count() == 0)){
             foreach ($users as $user){
-                $user->request_status = 'accepted';
+                $user->request_status = 'pending';
                 $user->save();
                 $new_user = new \App\User();
                 $new_user->name = $user->last_name.", ".$user->first_name;
@@ -114,7 +114,7 @@ Route::group(['middleware' => ['auth:web']], function () {
                 $new_user->role = $role;
                 $new_user->user_id = $user->id;
                 $new_user->save();
-            }
+			}
         }else{
             dd();
         }
@@ -145,7 +145,7 @@ Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
     $ip_address = 'localhost';
 
-    return redirect(url('http://'.$ip_address.':3000?id='.$id));
+    return redirect(url('http://'.$ip_address.':3000/home?id='.$id));
 });
 
 Route::get('/service-provider', function(){
