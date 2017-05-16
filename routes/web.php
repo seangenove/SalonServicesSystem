@@ -141,6 +141,7 @@ Route::post('/register-cus', function(\Illuminate\Http\Request $request){
     return redirect('admin/service-providers');
 });
 
+// Customer Route
 Route::get('/customer', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
     $ip_address = 'localhost';
@@ -148,6 +149,7 @@ Route::get('/customer', function(){
     return redirect(url('http://'.$ip_address.':3000?id='.$id));
 });
 
+// SP Route
 Route::get('/service-provider', function(){
     $id = \Illuminate\Support\Facades\Auth::user()->user_id;
     $ip_address = 'localhost';
@@ -158,5 +160,5 @@ Route::get('/service-provider', function(){
 Route::get('/user-logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
 
-    return redirect('/');
+    return view('homepage');
 });
