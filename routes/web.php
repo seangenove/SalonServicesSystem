@@ -134,7 +134,7 @@ Route::post('/register-sp', function(\Illuminate\Http\Request $request){
 
 Route::post('/register-cus', function(\Illuminate\Http\Request $request){
     $requestData = $request->all();
-    \App\ServiceProvider::create($requestData);
+    \App\Customer::create($requestData);
 
     \Illuminate\Support\Facades\Session::flash('flash_message', 'ServiceProvider added!');
 
@@ -160,5 +160,5 @@ Route::get('/service-provider', function(){
 Route::get('/user-logout', function(){
     \Illuminate\Support\Facades\Auth::logout();
 
-    return view('homepage');
+    return redirect(url('/'));
 });
