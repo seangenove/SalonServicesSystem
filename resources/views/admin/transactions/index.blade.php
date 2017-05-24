@@ -59,7 +59,7 @@
                                             </td>
                                             <td>
                                                 @foreach($service_providers as $service_provider)
-                                                    @if($service_provider->id == $transaction->service_providers)
+                                                    @if($service_provider->id == $transaction->sp_id)
                                                         {{ $service_provider->last_name.", ".$service_provider->first_name }}
                                                     @endif
                                                 @endforeach

@@ -36,19 +36,19 @@ class PaymentsController extends Controller
 
         $payments = DB::table('payments')
             ->join('transactions', 'transactions.id', '=', 'payments.transaction_id')
+            ->join('visits', 'transactions.id', '=', 'visits.transactionId')
             ->join('service_requests', 'transactions.request_id', '=', 'service_requests.id')
             ->select('transactions.*',
-                'service_requests.date_requested',
-                'service_requests.date_accepted',
-                'service_requests.service_id',
-                'service_requests.customer_id',
-                'service_requests.service_providers',
+//                'service_requests.date_requested',
+//                'service_requests.date_accepted',
+//                'service_requests.customer_id',
+                'service_requests.sp_id',
                 'payments.amount',
                 'payments.transaction_id',
                 'payments.time',
                 'payments.date')
             ->get();
-
+//        Payment::all();
         $customers = Customer::all();
         $serviceproviders = ServiceProvider::all();
 

@@ -53,9 +53,9 @@ class TransactionsController extends Controller
             ->select('transactions.*',
                 'service_requests.date_requested',
                 'service_requests.date_accepted',
-                'service_requests.service_id',
+//                'service_requests.service_id',
                 'service_requests.customer_id',
-                'service_requests.service_providers')
+                'service_requests.sp_id')
             ->get();
         $visits = Visit::all();
 

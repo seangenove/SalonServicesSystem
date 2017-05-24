@@ -26,7 +26,6 @@
 
                                     <tbody>
                                     @foreach($payments as $payment)
-{{--                                        {{dd($payment)}}--}}
                                         <tr class="clickable-row" data-href="payments/{{$payment->id}}">
                                             <td>{{ $payment->id }}</td>
                                              {{--<td>{{ $payment->customer }}</td>--}}
@@ -37,7 +36,7 @@
                                                 @endforeach
                                             {{--<td>{{ $payment->service_provider }}</td>--}}
                                                 @foreach($serviceproviders as $serviceprovider)
-                                                    @if($payment->service_providers == $serviceprovider->id)
+                                                    @if($payment->sp_id == $serviceprovider->id)
                                                         <td>{{ $serviceprovider->last_name . ", " . $serviceprovider->first_name }}</td>
                                                     @endif
                                                 @endforeach
